@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>MyMedfit Bravo PRO · Patient‑Centred Care</title>
+    <title>MyMedfit Bravo PRO · ANCHOR Integrated</title>
 
     <!-- ========== DEPENDENCIES ========== -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
-        /* ---------- RESET & BASE – Mobile First ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -21,16 +20,16 @@
             font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
         }
         body {
-            background: #f0f5fa;
+            background: #0b1020;
             padding: 8px;
-            color: #1e2a3a;
+            color: #f5f5f5;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             font-size: 14px;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             width: 100%;
             flex: 1;
@@ -41,10 +40,10 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            background: white;
+            background: #12172a;
             padding: 8px 12px;
             border-radius: 16px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid #262c4a;
             margin-bottom: 10px;
             gap: 6px;
         }
@@ -69,11 +68,14 @@
             font-size: 0.45rem;
             font-weight: 700;
             color: white;
-            background: #28a745;
+            background: #6f42c1;
             padding: 1px 8px;
             border-radius: 30px;
             letter-spacing: 0.3px;
             text-transform: uppercase;
+        }
+        .brand .badge-anchor {
+            background: #28a745;
         }
         .header-controls {
             display: flex;
@@ -84,7 +86,7 @@
         .lang-selector {
             display: flex;
             gap: 2px;
-            background: #f0f4fa;
+            background: #1a2038;
             padding: 2px;
             border-radius: 30px;
         }
@@ -96,7 +98,7 @@
             font-size: 0.55rem;
             cursor: pointer;
             background: transparent;
-            color: #4a5b6e;
+            color: #8892b0;
             transition: 0.2s;
         }
         .lang-btn.active {
@@ -104,14 +106,15 @@
             color: white;
         }
         .lang-btn:hover:not(.active) {
-            background: #d9e1ec;
+            background: #1a2038;
+            color: #f5f5f5;
         }
         .encounter-id {
             font-size: 0.55rem;
-            background: #eef2f7;
+            background: #1a2038;
             padding: 2px 8px;
             border-radius: 30px;
-            color: #1e2a3a;
+            color: #8892b0;
             white-space: nowrap;
         }
 
@@ -124,13 +127,13 @@
         .profile-btn {
             padding: 4px 10px;
             border-radius: 30px;
-            border: 1.5px solid #d9e1ec;
-            background: white;
+            border: 1.5px solid #262c4a;
+            background: #12172a;
             font-weight: 600;
             font-size: 0.6rem;
             cursor: pointer;
             transition: 0.2s;
-            color: #1e2a3a;
+            color: #8892b0;
             display: flex;
             align-items: center;
             gap: 4px;
@@ -143,64 +146,11 @@
             color: white;
         }
         .profile-btn:hover:not(.active) {
-            background: #eef2f7;
+            background: #1a2038;
+            border-color: #3a4060;
         }
         .profile-btn i {
             font-size: 0.7rem;
-        }
-
-        .instructions {
-            background: white;
-            border-radius: 14px;
-            padding: 6px 12px;
-            margin-bottom: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 4px 10px;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            max-height: 200px;
-        }
-        .instructions.collapsed {
-            max-height: 0;
-            padding: 0 12px;
-            margin: 0;
-            border: none;
-        }
-        .instructions .step {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 0.6rem;
-            color: #1e2a3a;
-        }
-        .instructions .step .num {
-            background: #005792;
-            color: white;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 0.5rem;
-            flex-shrink: 0;
-        }
-        .instructions .step i {
-            color: #00b4d8;
-            font-size: 0.7rem;
-        }
-        .toggle-instr {
-            background: none;
-            border: none;
-            color: #4a5b6e;
-            font-size: 0.7rem;
-            cursor: pointer;
-            padding: 2px 6px;
-            margin-left: auto;
         }
 
         .grid-2 {
@@ -211,9 +161,10 @@
         }
 
         .card {
-            background: white;
+            background: #151a30;
             border-radius: 16px;
             padding: 12px 14px;
+            border: 1px solid #262c4a;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
         .card h3 {
@@ -223,7 +174,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            color: #1e2a3a;
+            color: #f5f5f5;
         }
         .card h3 i {
             color: #005792;
@@ -231,8 +182,143 @@
             font-size: 0.8rem;
         }
 
+        /* Camera / Liveness */
+        .video-container {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            background: #000;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        video {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            transform: scale(1.15);
+        }
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+        }
+        .overlay.hidden {
+            display: none;
+        }
+        .overlay span {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            border: 1px solid #fff;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        .controls {
+            margin-top: 0.6rem;
+            display: flex;
+            gap: 0.4rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .controls button {
+            border: none;
+            border-radius: 999px;
+            padding: 0.4rem 0.8rem;
+            color: white;
+            background: #246bfd;
+            cursor: pointer;
+            font-size: 0.7rem;
+            transition: 0.1s ease all;
+        }
+        .controls button:disabled {
+            opacity: 0.4;
+            cursor: default;
+        }
+        .controls button:not(:disabled):hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(36, 107, 253, 0.4);
+        }
+        .controls .btn-danger {
+            background: #dc3545;
+        }
+        .controls .btn-danger:not(:disabled):hover {
+            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4);
+        }
+        .controls .btn-success {
+            background: #28a745;
+        }
+        .controls .btn-success:not(:disabled):hover {
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+        }
+
+        .status {
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #262c4a;
+            font-size: 0.8rem;
+        }
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.2rem;
+        }
+        progress {
+            width: 100%;
+            height: 0.5rem;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        progress::-webkit-progress-bar {
+            background: #20263d;
+        }
+        progress::-webkit-progress-value {
+            background: #24d18f;
+        }
+        progress::-moz-progress-bar {
+            background: #24d18f;
+        }
+
+        .hr-block {
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #262c4a;
+            font-size: 0.8rem;
+        }
+        .hr-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .hr-value {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .quality-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.3rem;
+            background: #555;
+            border: 1px solid #222;
+        }
+        .quality-dot.green {
+            background: #24d18f;
+        }
+        .quality-dot.red {
+            background: #ff4d4d;
+        }
+        .quality-dot.yellow {
+            background: #ffc107;
+        }
+
         .form-scroll {
-            max-height: 420px;
+            max-height: 320px;
             overflow-y: auto;
             padding-right: 4px;
             margin-bottom: 8px;
@@ -242,7 +328,7 @@
             width: 4px;
         }
         .form-scroll::-webkit-scrollbar-thumb {
-            background: #d9e1ec;
+            background: #262c4a;
             border-radius: 4px;
         }
 
@@ -250,7 +336,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 4px 8px;
-            background: #f8fafc;
+            background: #0f1428;
             padding: 4px 10px;
             border-radius: 10px;
             margin-bottom: 8px;
@@ -264,7 +350,7 @@
         }
         .demo-bar .demo-group label {
             font-weight: 700;
-            color: #4a5b6e;
+            color: #8892b0;
             text-transform: uppercase;
             font-size: 0.5rem;
         }
@@ -272,9 +358,10 @@
         .demo-bar .demo-group input {
             padding: 2px 4px;
             border-radius: 6px;
-            border: 1px solid #d9e1ec;
+            border: 1px solid #262c4a;
             font-size: 0.65rem;
-            background: white;
+            background: #0f1428;
+            color: #f5f5f5;
             width: 50px;
         }
         .demo-bar .demo-group select {
@@ -289,7 +376,7 @@
             flex-wrap: wrap;
             gap: 4px;
             margin: 4px 0 8px;
-            background: #f8fafc;
+            background: #0f1428;
             padding: 4px 10px;
             border-radius: 10px;
         }
@@ -298,10 +385,10 @@
             align-items: center;
             gap: 4px;
             font-size: 0.6rem;
-            background: white;
+            background: #151a30;
             padding: 2px 8px;
             border-radius: 30px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #262c4a;
         }
         .goals-section .goal-item i {
             color: #28a745;
@@ -313,6 +400,7 @@
             font-weight: 700;
             text-align: center;
             background: transparent;
+            color: #f5f5f5;
         }
         .goals-section .goal-item input:focus {
             outline: 2px solid #005792;
@@ -334,16 +422,17 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.2px;
-            color: #4a5b6e;
+            color: #8892b0;
             display: flex;
             justify-content: space-between;
         }
         .form-group input {
             padding: 4px 6px;
             border-radius: 8px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #262c4a;
             font-size: 0.7rem;
-            background: #fafcfe;
+            background: #0f1428;
+            color: #f5f5f5;
             transition: 0.15s;
             width: 100%;
         }
@@ -385,11 +474,11 @@
         }
         .btn-outline {
             background: transparent;
-            border: 1px solid #d9e1ec;
-            color: #1e2a3a;
+            border: 1px solid #262c4a;
+            color: #f5f5f5;
         }
         .btn-outline:hover {
-            background: #eef2f7;
+            background: #1a2038;
         }
         .btn-pdf {
             background: #dc3545;
@@ -407,7 +496,7 @@
         }
         .risk-item {
             flex: 1 0 60px;
-            background: #f8fafc;
+            background: #0f1428;
             padding: 2px 6px;
             border-radius: 6px;
             display: flex;
@@ -436,7 +525,7 @@
         }
 
         .composite-box {
-            background: linear-gradient(135deg, #eef6ff, #dbeafe);
+            background: linear-gradient(135deg, #0f1a30, #1a2a4a);
             border-radius: 10px;
             padding: 6px 12px;
             display: flex;
@@ -448,11 +537,11 @@
         .composite-score {
             font-size: 1.4rem;
             font-weight: 800;
-            color: #005792;
+            color: #00b4d8;
         }
 
         .ai-insight {
-            background: #f0f8ff;
+            background: #0f1428;
             border-left: 4px solid #00b4d8;
             padding: 6px 10px;
             border-radius: 8px;
@@ -498,18 +587,20 @@
         th {
             text-align: left;
             padding: 3px 4px;
-            background: #f0f4fa;
+            background: #0f1428;
             font-weight: 700;
-            border-bottom: 2px solid #d9e1ec;
+            border-bottom: 2px solid #262c4a;
             white-space: nowrap;
+            color: #8892b0;
         }
         td {
             padding: 3px 4px;
-            border-bottom: 1px solid #e9edf2;
+            border-bottom: 1px solid #1a2038;
             vertical-align: middle;
+            color: #f5f5f5;
         }
         tr:hover td {
-            background: #f8faff;
+            background: #1a2038;
         }
 
         .btn-sm {
@@ -519,56 +610,25 @@
             font-size: 0.5rem;
             font-weight: 600;
             cursor: pointer;
-            background: #eef2f7;
+            background: #1a2038;
+            color: #8892b0;
             transition: 0.2s;
         }
         .btn-sm:hover {
-            background: #d9e1ec;
+            background: #262c4a;
+            color: #f5f5f5;
         }
         .btn-sm.danger {
-            background: #f8d7da;
-            color: #721c24;
+            background: #3a1a1a;
+            color: #ff6b6b;
         }
         .btn-sm.danger:hover {
-            background: #f5c6cb;
+            background: #5a1a1a;
         }
 
-        .app-footer {
-            margin-top: 16px;
-            padding: 8px 12px;
-            background: white;
-            border-radius: 14px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            text-align: center;
-            font-size: 0.6rem;
-            color: #4a5b6e;
-        }
-        .app-footer a {
-            color: #005792;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .app-footer a:hover {
-            text-decoration: underline;
-        }
-        .app-footer .footer-brand {
-            font-weight: 700;
-            color: #1e2a3a;
-        }
-        .app-footer .care-aid-badge {
-            background: #28a745;
-            color: white;
-            padding: 1px 8px;
-            border-radius: 30px;
-            font-size: 0.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            display: inline-block;
-        }
-
-        /* Caregiver & Token styles */
+        /* Caregiver & Token */
         .caregiver-section {
-            background: #f8fafc;
+            background: #0f1428;
             border-radius: 10px;
             padding: 8px 12px;
             margin: 6px 0;
@@ -589,14 +649,15 @@
             font-size: 0.5rem;
             font-weight: 700;
             text-transform: uppercase;
-            color: #4a5b6e;
+            color: #8892b0;
         }
         .caregiver-section .meta-field input {
             padding: 3px 6px;
             border-radius: 6px;
-            border: 1px solid #d9e1ec;
+            border: 1px solid #262c4a;
             font-size: 0.7rem;
-            background: white;
+            background: #0f1428;
+            color: #f5f5f5;
         }
         .caregiver-section .meta-actions {
             display: flex;
@@ -615,54 +676,66 @@
             transition: 0.2s;
         }
         .btn-token {
-            background: #005792;
-            color: white;
-        }
-        .btn-token:hover {
-            background: #003d6b;
-        }
-        .btn-vault {
             background: #6f42c1;
             color: white;
         }
-        .btn-vault:hover {
+        .btn-token:hover {
             background: #5530a0;
         }
-        .btn-copy {
+        .btn-token:disabled {
+            opacity: 0.4;
+            cursor: default;
+        }
+        .btn-vault {
             background: #28a745;
             color: white;
         }
-        .btn-copy:hover {
+        .btn-vault:hover {
             background: #1e7e34;
+        }
+        .btn-vault:disabled {
+            opacity: 0.4;
+            cursor: default;
+        }
+        .btn-copy {
+            background: #005792;
+            color: white;
+        }
+        .btn-copy:hover {
+            background: #003d6b;
+        }
+        .btn-copy:disabled {
+            opacity: 0.4;
+            cursor: default;
         }
         .token-output {
             width: 100%;
             min-height: 60px;
             resize: vertical;
             border-radius: 6px;
-            border: 1px solid #d9e1ec;
+            border: 1px solid #262c4a;
             padding: 4px 6px;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-family: monospace;
-            background: #fafcfe;
-            color: #1e2a3a;
+            background: #0f1428;
+            color: #f5f5f5;
             word-break: break-all;
         }
         .vault-list {
             max-height: 100px;
             overflow-y: auto;
             font-size: 0.6rem;
-            background: white;
+            background: #0f1428;
             border-radius: 6px;
             padding: 4px 8px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #262c4a;
         }
         .vault-list .vault-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 2px 0;
-            border-bottom: 1px solid #f0f4fa;
+            border-bottom: 1px solid #1a2038;
         }
         .vault-list .vault-item:last-child {
             border-bottom: none;
@@ -673,7 +746,21 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            max-width: 200px;
+            max-width: 180px;
+            color: #8892b0;
+        }
+        .vault-list .vault-item .vault-status {
+            font-size: 0.5rem;
+            padding: 1px 6px;
+            border-radius: 30px;
+        }
+        .vault-status.verified {
+            background: #28a745;
+            color: white;
+        }
+        .vault-status.pending {
+            background: #ffc107;
+            color: #1a1a1a;
         }
         .vault-list .vault-item .vault-actions button {
             padding: 1px 6px;
@@ -682,6 +769,58 @@
             font-size: 0.5rem;
             cursor: pointer;
             margin-left: 4px;
+            background: #1a2038;
+            color: #8892b0;
+        }
+        .vault-list .vault-item .vault-actions button:hover {
+            background: #262c4a;
+            color: #f5f5f5;
+        }
+
+        .anchor-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: #0f1428;
+            margin: 4px 0;
+            font-size: 0.7rem;
+        }
+        .anchor-status .status-icon {
+            font-size: 1rem;
+        }
+        .anchor-status .status-icon.pass {
+            color: #28a745;
+        }
+        .anchor-status .status-icon.fail {
+            color: #dc3545;
+        }
+        .anchor-status .status-icon.pending {
+            color: #ffc107;
+        }
+
+        .app-footer {
+            margin-top: 16px;
+            padding: 8px 12px;
+            background: #12172a;
+            border-radius: 14px;
+            border: 1px solid #262c4a;
+            text-align: center;
+            font-size: 0.6rem;
+            color: #8892b0;
+        }
+        .app-footer a {
+            color: #00b4d8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .app-footer a:hover {
+            text-decoration: underline;
+        }
+        .app-footer .footer-brand {
+            font-weight: 700;
+            color: #f5f5f5;
         }
 
         @media (max-width: 480px) {
@@ -720,168 +859,6 @@
                 max-height: 500px;
             }
         }
-
-        /* ---------- PDF REPORT STYLES ---------- */
-        #pdfContent {
-            display: none;
-        }
-        .pdf-report {
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 30px 35px;
-            background: white;
-            color: #1e2a3a;
-            line-height: 1.5;
-        }
-        .pdf-report .pdf-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 3px solid #005792;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-        .pdf-report .pdf-logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-        .pdf-report .pdf-logo .logo-v {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: #005792;
-            line-height: 1;
-            letter-spacing: -2px;
-        }
-        .pdf-report .pdf-logo .logo-text {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #1e2a3a;
-            letter-spacing: 1px;
-        }
-        .pdf-report .pdf-logo .logo-text span {
-            color: #005792;
-        }
-        .pdf-report .pdf-title {
-            text-align: right;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #005792;
-        }
-        .pdf-report .pdf-title small {
-            display: block;
-            font-weight: 400;
-            font-size: 0.7rem;
-            color: #4a5b6e;
-        }
-        .pdf-report .pdf-section {
-            margin-bottom: 16px;
-        }
-        .pdf-report .pdf-section h4 {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #005792;
-            border-bottom: 1px solid #e9edf2;
-            padding-bottom: 4px;
-            margin-bottom: 8px;
-        }
-        .pdf-report .pdf-grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px 16px;
-            font-size: 0.75rem;
-        }
-        .pdf-report .pdf-grid-2 .item {
-            display: flex;
-            justify-content: space-between;
-            padding: 2px 0;
-            border-bottom: 1px solid #f0f4fa;
-        }
-        .pdf-report .pdf-grid-2 .item .label {
-            color: #4a5b6e;
-        }
-        .pdf-report .pdf-grid-2 .item .value {
-            font-weight: 600;
-        }
-        .pdf-report .pdf-risk-badge {
-            display: inline-block;
-            padding: 2px 12px;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        .pdf-report .pdf-risk-low {
-            background: #d4edda;
-            color: #155724;
-        }
-        .pdf-report .pdf-risk-moderate {
-            background: #fff3cd;
-            color: #856404;
-        }
-        .pdf-report .pdf-risk-high {
-            background: #f8d7da;
-            color: #721c24;
-        }
-        .pdf-report .pdf-tips {
-            font-size: 0.7rem;
-            background: #f8fafc;
-            padding: 10px 14px;
-            border-radius: 8px;
-            border-left: 4px solid #00b4d8;
-        }
-        .pdf-report .pdf-tips ul {
-            margin: 4px 0 0 16px;
-            padding: 0;
-        }
-        .pdf-report .pdf-tips ul li {
-            margin-bottom: 2px;
-        }
-        .pdf-report .pdf-table {
-            width: 100%;
-            font-size: 0.65rem;
-            border-collapse: collapse;
-            margin-top: 6px;
-        }
-        .pdf-report .pdf-table th {
-            background: #f0f4fa;
-            padding: 4px 6px;
-            text-align: left;
-            font-weight: 700;
-            border-bottom: 2px solid #d9e1ec;
-        }
-        .pdf-report .pdf-table td {
-            padding: 4px 6px;
-            border-bottom: 1px solid #e9edf2;
-        }
-        .pdf-report .pdf-footer {
-            margin-top: 20px;
-            padding-top: 12px;
-            border-top: 2px solid #e9edf2;
-            text-align: center;
-            font-size: 0.6rem;
-            color: #6f7d8f;
-        }
-        .pdf-report .pdf-footer a {
-            color: #005792;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        @media (max-width: 500px) {
-            .pdf-report .pdf-grid-2 {
-                grid-template-columns: 1fr;
-            }
-            .pdf-report .pdf-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 6px;
-            }
-            .pdf-report .pdf-title {
-                text-align: center;
-            }
-        }
     </style>
 </head>
 <body>
@@ -892,6 +869,7 @@
             <div class="brand">
                 <h1><i class="fas fa-heartbeat"></i> MyMedfit BRAVO PRO</h1>
                 <span class="badge"><i class="fas fa-robot"></i> Patient‑Centred Care</span>
+                <span class="badge badge-anchor"><i class="fas fa-fingerprint"></i> ANCHOR</span>
             </div>
             <div class="header-controls">
                 <div class="lang-selector" id="langSelector">
@@ -910,27 +888,66 @@
             <button class="profile-btn" data-profile="palliative"><i class="fas fa-heart"></i> Palliative</button>
         </div>
 
-        <div class="instructions" id="instructions">
-            <div class="step"><span class="num">1</span> <i class="fas fa-edit"></i> <span data-i18n="step1">Enter patient data & labs</span></div>
-            <div class="step"><span class="num">2</span> <i class="fas fa-save"></i> <span data-i18n="step2">Save & view insights</span></div>
-            <button class="toggle-instr" id="toggleInstrBtn"><i class="fas fa-chevron-up"></i></button>
-        </div>
-
         <div class="grid-2">
 
             <div class="card">
-                <h3><i class="fas fa-edit"></i> <span data-i18n="enterReadings">Patient Assessment & Labs</span></h3>
+                <h3><i class="fas fa-camera"></i> ANCHOR · Liveness & HR</h3>
 
-                <!-- CAREGIVER IDENTIFICATION SECTION -->
-                <div class="caregiver-section">
+                <div class="video-container">
+                    <video id="video" autoplay playsinline></video>
+                    <div id="overlay" class="overlay hidden">
+                        <span id="overlayText">Look straight into the camera</span>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="startCameraBtn" class="btn-success">Start Camera</button>
+                    <button id="stopCameraBtn" class="btn-danger" disabled>Stop</button>
+                    <button id="runLivenessBtn" class="btn-success" disabled>Run Liveness</button>
+                    <button id="startHRBtn" class="btn-success" disabled>Start HR</button>
+                    <button id="stopHRBtn" class="btn-danger" disabled>Stop HR</button>
+                </div>
+
+                <div class="status">
+                    <div class="status-row">
+                        <span>Status:</span>
+                        <span id="statusText">Idle</span>
+                    </div>
+                    <div class="status-row">
+                        <span>Liveness:</span>
+                        <span id="livenessStatus">Not run</span>
+                    </div>
+                    <progress id="progressBar" value="0" max="100"></progress>
+                </div>
+
+                <div class="hr-block">
+                    <div class="hr-top-row">
+                        <span>
+                            <span id="hrQualityDot" class="quality-dot"></span>
+                            Optical HR (rPPG):
+                        </span>
+                        <span class="hr-value" id="hrValue">-- bpm</span>
+                    </div>
+                    <div style="font-size:0.7rem; opacity:0.8;" id="hrStatus">Press "Start HR" and stay still</div>
+                    <div style="font-size:0.6rem; opacity:0.6; margin-top:2px;" id="hrDebug"></div>
+                </div>
+
+                <!-- ANCHOR Status -->
+                <div class="anchor-status">
+                    <span class="status-icon pending" id="anchorIcon">⏳</span>
+                    <span id="anchorStatusText">ANCHOR verification pending: Run liveness and HR</span>
+                </div>
+
+                <!-- Caregiver Identification -->
+                <div class="caregiver-section" style="margin-top:6px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                        <span style="font-weight:700; font-size:0.7rem; color:#005792;"><i class="fas fa-user-md"></i> Caregiver Identity</span>
-                        <span style="font-size:0.5rem; color:#6f7d8f;">Device: <span id="deviceIdDisplay" style="font-family:monospace;">—</span></span>
+                        <span style="font-weight:700; font-size:0.7rem; color:#00b4d8;"><i class="fas fa-user-md"></i> KYC · Caregiver Identity</span>
+                        <span style="font-size:0.5rem; color:#8892b0;">Device: <span id="deviceIdDisplay" style="font-family:monospace;">—</span></span>
                     </div>
                     <div class="meta-row">
                         <div class="meta-field">
-                            <label>Caregiver Name</label>
-                            <input id="caregiverName" type="text" placeholder="e.g. Moustafa Ali" />
+                            <label>Full Name</label>
+                            <input id="caregiverName" type="text" placeholder="e.g. Moustafa Mohammed Ali" />
                         </div>
                         <div class="meta-field">
                             <label>License / ID</label>
@@ -947,31 +964,43 @@
                             <input id="encounterRef" type="text" placeholder="e.g. ENC-2025-0001" />
                         </div>
                     </div>
+                </div>
+
+                <!-- Token Generation -->
+                <div class="caregiver-section">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                        <span style="font-weight:700; font-size:0.7rem; color:#6f42c1;"><i class="fas fa-fingerprint"></i> ANCHOR Session Token</span>
+                    </div>
                     <div class="meta-actions">
-                        <button class="btn-token" id="generateTokenBtn"><i class="fas fa-fingerprint"></i> Generate Token</button>
-                        <button class="btn-copy" id="copyTokenBtn"><i class="fas fa-copy"></i> Copy</button>
-                        <button class="btn-vault" id="saveToVaultBtn"><i class="fas fa-vault"></i> Save to Vault</button>
-                        <span style="font-size:0.6rem; color:#6f7d8f;" id="tokenStatus">No token generated</span>
+                        <button class="btn-token" id="generateTokenBtn"><i class="fas fa-key"></i> Generate Token</button>
+                        <button class="btn-copy" id="copyTokenBtn" disabled><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-vault" id="saveToVaultBtn" disabled><i class="fas fa-vault"></i> Save to Vault</button>
+                        <span style="font-size:0.6rem; color:#8892b0;" id="tokenStatus">Run liveness & HR first</span>
                     </div>
                     <div style="margin-top:4px;">
-                        <textarea class="token-output" id="tokenOutput" readonly placeholder="Generated session token will appear here. Share manually with verifier."></textarea>
+                        <textarea class="token-output" id="tokenOutput" readonly placeholder="ANCHOR session token will appear here after liveness + HR + KYC verification"></textarea>
                     </div>
                 </div>
 
-                <!-- TOKEN VAULT -->
-                <div class="caregiver-section" style="margin-top:4px;">
+                <!-- Token Vault -->
+                <div class="caregiver-section">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                        <span style="font-weight:700; font-size:0.7rem; color:#6f42c1;"><i class="fas fa-vault"></i> Token Vault</span>
-                        <span style="font-size:0.5rem; color:#6f7d8f;" id="vaultCount">0 tokens</span>
+                        <span style="font-weight:700; font-size:0.7rem; color:#28a745;"><i class="fas fa-vault"></i> Token Vault</span>
+                        <span style="font-size:0.5rem; color:#8892b0;" id="vaultCount">0 tokens</span>
                     </div>
                     <div class="vault-list" id="vaultList">
-                        <div style="color:#6f7d8f; font-size:0.6rem; text-align:center; padding:4px 0;">No tokens in vault. Generate and save tokens for verification.</div>
+                        <div style="color:#8892b0; font-size:0.6rem; text-align:center; padding:4px 0;">No tokens in vault.</div>
                     </div>
                     <div class="meta-actions" style="margin-top:4px;">
-                        <button class="btn-outline" id="clearVaultBtn" style="font-size:0.55rem; padding:2px 10px;"><i class="fas fa-trash"></i> Clear Vault</button>
-                        <button class="btn-outline" id="exportVaultBtn" style="font-size:0.55rem; padding:2px 10px;"><i class="fas fa-file-export"></i> Export Vault</button>
+                        <button class="btn-outline" id="clearVaultBtn" style="font-size:0.55rem; padding:2px 10px;"><i class="fas fa-trash"></i> Clear</button>
+                        <button class="btn-outline" id="exportVaultBtn" style="font-size:0.55rem; padding:2px 10px;"><i class="fas fa-file-export"></i> Export</button>
+                        <button class="btn-outline" id="verifyTokenBtn" style="font-size:0.55rem; padding:2px 10px; color:#28a745; border-color:#28a745;"><i class="fas fa-check-circle"></i> Verify</button>
                     </div>
                 </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-edit"></i> Patient Assessment & Labs</h3>
 
                 <div class="demo-bar">
                     <div class="demo-group">
@@ -1004,61 +1033,57 @@
 
                 <form id="checkupForm" autocomplete="off">
                     <div class="form-scroll" id="formScroll">
-                        <div class="form-grid" id="formFields">
-                            <!-- Fields will be rendered here by JavaScript -->
-                        </div>
+                        <div class="form-grid" id="formFields"></div>
                     </div>
                     <div class="action-bar">
-                        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> <span data-i18n="saveEncounter">Save</span></button>
-                        <button type="reset" class="btn btn-outline" id="clearBtn"><i class="fas fa-undo"></i> <span data-i18n="clear">Clear</span></button>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save Encounter</button>
+                        <button type="reset" class="btn btn-outline" id="clearBtn"><i class="fas fa-undo"></i> Clear</button>
                         <button type="button" class="btn btn-pdf" id="pdfBtn"><i class="fas fa-file-pdf"></i> PDF Report</button>
                     </div>
                 </form>
-            </div>
 
-            <div class="card">
-                <h3><i class="fas fa-chart-pie"></i> <span data-i18n="riskInsights">Care Insights & Trends</span></h3>
-                <div id="riskContainer">
-                    <div style="color:#6f7d8f; padding:8px 0; text-align:center; font-size:0.7rem;"><span data-i18n="saveToSeeRisk">Save an encounter to see recommendations.</span></div>
-                </div>
-                <div class="composite-box">
-                    <span><i class="fas fa-shield-alt"></i> <span data-i18n="compositeIndex">Functionality Index</span></span>
-                    <span class="composite-score" id="compositeScore">—</span>
-                </div>
-
-                <div class="chart-container">
-                    <canvas id="trendChart"></canvas>
-                </div>
-
-                <div class="ai-insight" id="aiInsight">
-                    <i class="fas fa-robot"></i> <span data-i18n="aiPlaceholder">Evidence‑based recommendations appear after saving.</span>
+                <div style="margin-top:8px;">
+                    <h3 style="font-size:0.8rem;"><i class="fas fa-chart-pie"></i> Care Insights</h3>
+                    <div id="riskContainer">
+                        <div style="color:#8892b0; padding:8px 0; text-align:center; font-size:0.7rem;">Save an encounter to see recommendations.</div>
+                    </div>
+                    <div class="composite-box">
+                        <span><i class="fas fa-shield-alt"></i> Functionality Index</span>
+                        <span class="composite-score" id="compositeScore">—</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                    <div class="ai-insight" id="aiInsight">
+                        <i class="fas fa-robot"></i> <span>Evidence‑based recommendations appear after saving.</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="card history-section">
-            <h3><i class="fas fa-history"></i> <span data-i18n="history">Encounter History & Trend Log</span> <span style="font-size:0.55rem; font-weight:400; color:#4a5b6e;" id="historyCount">0 records</span></h3>
+            <h3><i class="fas fa-history"></i> Encounter History <span style="font-size:0.55rem; font-weight:400; color:#8892b0;" id="historyCount">0 records</span></h3>
             <div class="table-wrap">
                 <table>
                     <thead>
                         <tr>
-                            <th><span data-i18n="id">ID</span></th>
-                            <th><span data-i18n="date">Date</span></th>
-                            <th><span data-i18n="profile">Profile</span></th>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Profile</th>
                             <th>Caregiver</th>
                             <th>Gender</th>
                             <th>Age</th>
                             <th>BMI</th>
-                            <th><span data-i18n="pain">Pain</span></th>
-                            <th><span data-i18n="mobility">Mobility</span></th>
-                            <th><span data-i18n="fatigue">Fatigue</span></th>
-                            <th><span data-i18n="function">Function</span></th>
-                            <th><span data-i18n="functionIndex">Index</span></th>
-                            <th><span data-i18n="action">Action</span></th>
+                            <th>Pain</th>
+                            <th>Mobility</th>
+                            <th>Fatigue</th>
+                            <th>Function</th>
+                            <th>Index</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="historyBody">
-                        <tr><td colspan="13" style="text-align:center; color:#6f7d8f; font-size:0.65rem;"><span data-i18n="noEncounters">No encounters yet.</span></td></tr>
+                        <tr><td colspan="13" style="text-align:center; color:#8892b0; font-size:0.65rem;">No encounters yet.</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1070,30 +1095,21 @@
         <span class="footer-brand">MyMedfit BRAVO PRO</span> ·
         <a href="https://virtualcaresolution.de" target="_blank">virtualcaresolution.de</a>
         <span style="margin:0 4px;">·</span>
-        <span data-i18n="footerIp">IP</span>: <span id="ipDisplay">—</span>
-        <span style="margin:0 4px;">·</span>
-        <span style="font-weight:600; color:#005792;">Aligns Provider–Payer–Regulator goals around measurable patient outcomes.</span>
-        <span style="margin:0 4px;">·</span>
-        <span class="care-aid-badge">🏠 Pflegehilfsmittel</span>
+        <span style="font-weight:600; color:#00b4d8;">ANCHOR · Liveness + rPPG + KYC → Signed Session Token</span>
     </footer>
-
-    <!-- ========== PDF CONTENT (hidden) ========== -->
-    <div id="pdfContent">
-        <div class="pdf-report" id="pdfReportContent">
-            <!-- filled by JavaScript -->
-        </div>
-    </div>
 
     <script>
         // ============================================================
-        //  MyMedfit BRAVO PRO – Patient‑Centred Care
-        //  WITH Caregiver Identification & Token Vault System
-        //  ANCHOR-compatible: tokens can be shared manually with verifier
+        //  MyMedfit BRAVO PRO + ANCHOR
+        //  Integrated Liveness, Optical HR (rPPG), KYC → Token
         // ============================================================
 
-        // SHARED SECRET KEY for token verification (same as verifier tool)
+        // SHARED SECRET KEY for token verification
         const TOKEN_KEY_STRING = "local-offline-signature";
 
+        // ============================================================
+        //  UTILITY FUNCTIONS
+        // ============================================================
         function base64UrlEncode(str) {
             return btoa(str)
                 .replace(/\+/g, "-")
@@ -1122,7 +1138,7 @@
         }
 
         // ============================================================
-        //  FIELD_DEFS – ALL ASSESSMENT AND LAB FIELDS
+        //  FIELD DEFINITIONS
         // ============================================================
         const FIELD_DEFS = {
             acute: [
@@ -1204,188 +1220,95 @@
         // ============================================================
         //  APPLICATION STATE
         // ============================================================
-        const i18n = {
-            en: {
-                step1: 'Enter patient data & labs',
-                step2: 'Save & view insights',
-                enterReadings: 'Patient Assessment & Labs',
-                clear: 'Clear',
-                saveEncounter: 'Save',
-                riskInsights: 'Care Insights & Trends',
-                saveToSeeRisk: 'Save an encounter to see recommendations.',
-                compositeIndex: 'Functionality Index',
-                aiPlaceholder: 'Evidence‑based recommendations appear after saving.',
-                history: 'Encounter History & Trend Log',
-                id: 'ID',
-                date: 'Date',
-                profile: 'Profile',
-                pain: 'Pain',
-                mobility: 'Mobility',
-                fatigue: 'Fatigue',
-                function: 'Function',
-                functionIndex: 'Index',
-                action: 'Action',
-                noEncounters: 'No encounters yet.',
-                footerIp: 'IP',
-                pdfTitle: 'Care Report',
-                pdfPatient: 'Patient',
-                pdfGender: 'Gender',
-                pdfAge: 'Age',
-                pdfDate: 'Report Date',
-                pdfCurrentReadings: 'Current Check‑in',
-                pdfCareIndex: 'Functionality Index',
-                pdfIcfDomains: 'ICF Domains',
-                pdfTips: 'Care Tips',
-                pdfTrend: 'Trend Summary (last 5)',
-                pdfFooter: 'Powered by MyMedfit BRAVO PRO · virtualcaresolution.de',
-            },
-            de: {
-                step1: 'Patientendaten & Laborwerte eingeben',
-                step2: 'Speichern & Einblicke anzeigen',
-                enterReadings: 'Patientenbewertung & Labor',
-                clear: 'Löschen',
-                saveEncounter: 'Speichern',
-                riskInsights: 'Pflegeeinblicke & Trends',
-                saveToSeeRisk: 'Speichern Sie einen Termin, um Empfehlungen zu sehen.',
-                compositeIndex: 'Funktionalitätsindex',
-                aiPlaceholder: 'Evidenzbasierte Empfehlungen erscheinen nach dem Speichern.',
-                history: 'Terminverlauf & Trendprotokoll',
-                id: 'ID',
-                date: 'Datum',
-                profile: 'Profil',
-                pain: 'Schmerz',
-                mobility: 'Mobilität',
-                fatigue: 'Fatigue',
-                function: 'Funktion',
-                functionIndex: 'Index',
-                action: 'Aktion',
-                noEncounters: 'Noch keine Termine.',
-                footerIp: 'IP',
-                pdfTitle: 'Pflegebericht',
-                pdfPatient: 'Patient',
-                pdfGender: 'Geschlecht',
-                pdfAge: 'Alter',
-                pdfDate: 'Berichtsdatum',
-                pdfCurrentReadings: 'Aktueller Check‑in',
-                pdfCareIndex: 'Funktionalitätsindex',
-                pdfIcfDomains: 'ICF-Domänen',
-                pdfTips: 'Pflegetipps',
-                pdfTrend: 'Trendübersicht (letzte 5)',
-                pdfFooter: 'Betrieben von MyMedfit BRAVO PRO · virtualcaresolution.de',
-            },
-            es: {
-                step1: 'Ingresar datos del paciente y laboratorios',
-                step2: 'Guardar y ver insights',
-                enterReadings: 'Evaluación del paciente y laboratorios',
-                clear: 'Limpiar',
-                saveEncounter: 'Guardar',
-                riskInsights: 'Perspectivas de cuidado y tendencias',
-                saveToSeeRisk: 'Guarde un encuentro para ver recomendaciones.',
-                compositeIndex: 'Índice de funcionalidad',
-                aiPlaceholder: 'Recomendaciones basadas en evidencia aparecen después de guardar.',
-                history: 'Historial de encuentros y registro de tendencias',
-                id: 'ID',
-                date: 'Fecha',
-                profile: 'Perfil',
-                pain: 'Dolor',
-                mobility: 'Movilidad',
-                fatigue: 'Fatiga',
-                function: 'Función',
-                functionIndex: 'Índice',
-                action: 'Acción',
-                noEncounters: 'Aún no hay encuentros.',
-                footerIp: 'IP',
-                pdfTitle: 'Informe de Cuidado',
-                pdfPatient: 'Paciente',
-                pdfGender: 'Género',
-                pdfAge: 'Edad',
-                pdfDate: 'Fecha del Informe',
-                pdfCurrentReadings: 'Control actual',
-                pdfCareIndex: 'Índice de funcionalidad',
-                pdfIcfDomains: 'Dominios ICF',
-                pdfTips: 'Consejos de cuidado',
-                pdfTrend: 'Resumen de tendencia (últimos 5)',
-                pdfFooter: 'Desarrollado por MyMedfit BRAVO PRO · virtualcaresolution.de',
-            },
-            ar: {
-                step1: 'إدخال بيانات المريض والمختبرات',
-                step2: 'حفظ وعرض الرؤى',
-                enterReadings: 'تقييم المريض والمختبرات',
-                clear: 'مسح',
-                saveEncounter: 'حفظ',
-                riskInsights: 'رؤى الرعاية والاتجاهات',
-                saveToSeeRisk: 'احفظ زيارة لرؤية التوصيات.',
-                compositeIndex: 'مؤشر الوظائف',
-                aiPlaceholder: 'تظهر التوصيات القائمة على الأدلة بعد الحفظ.',
-                history: 'سجل الزيارات وسجل الاتجاهات',
-                id: 'المعرف',
-                date: 'التاريخ',
-                profile: 'الملف الشخصي',
-                pain: 'الألم',
-                mobility: 'الحركة',
-                fatigue: 'الإرهاق',
-                function: 'الوظيفة',
-                functionIndex: 'المؤشر',
-                action: 'إجراء',
-                noEncounters: 'لا توجد زيارات بعد.',
-                footerIp: 'IP',
-                pdfTitle: 'تقرير الرعاية',
-                pdfPatient: 'المريض',
-                pdfGender: 'الجنس',
-                pdfAge: 'العمر',
-                pdfDate: 'تاريخ التقرير',
-                pdfCurrentReadings: 'الفحص الحالي',
-                pdfCareIndex: 'مؤشر الوظائف',
-                pdfIcfDomains: 'مجالات ICF',
-                pdfTips: 'نصائح الرعاية',
-                pdfTrend: 'ملخص الاتجاه (آخر 5)',
-                pdfFooter: 'مدعوم من MyMedfit BRAVO PRO · virtualcaresolution.de',
-            }
-        };
-
-        let currentLang = 'en';
         const STORAGE_KEY = 'medfitBravo_encounters';
         const VAULT_KEY = 'medfitBravo_tokenVault';
         let encounters = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
         let tokenVault = JSON.parse(localStorage.getItem(VAULT_KEY)) || [];
-        let currentEncounterId = null;
-        let chartInstance = null;
         let currentProfile = 'acute';
         let deviceId = getOrCreateDeviceId();
+
+        // ANCHOR State
+        let stream = null;
+        let livenessRunning = false;
+        let livenessCompleted = false;
+        let livenessDurationSec = null;
+        let livenessStartTime = null;
+        let progressInterval = null;
+        let hrTimer = null;
+        let hrSignal = [];
+        let hrTimestamps = [];
+        let lastHREstimate = null;
+        let hrQuality = 'pending';
+        let anchorVerified = false;
         let lastGeneratedToken = null;
 
-        // DOM refs
-        const form = document.getElementById('checkupForm');
-        const formFields = document.getElementById('formFields');
-        const clearBtn = document.getElementById('clearBtn');
-        const riskContainer = document.getElementById('riskContainer');
-        const compositeScore = document.getElementById('compositeScore');
-        const aiInsight = document.getElementById('aiInsight');
-        const pdfBtn = document.getElementById('pdfBtn');
-        const toggleInstrBtn = document.getElementById('toggleInstrBtn');
-        const instructions = document.getElementById('instructions');
-        const historyBody = document.getElementById('historyBody');
-        const historyCount = document.getElementById('historyCount');
-        const encounterNumberSpan = document.getElementById('encounterNumber');
-        const langBtns = document.querySelectorAll('.lang-btn');
-        const ipDisplay = document.getElementById('ipDisplay');
-        const canvas = document.getElementById('trendChart');
+        // Face detection
+        let faceDetector = null;
+        let lastFaceBox = null;
+        if ("FaceDetector" in window) {
+            try {
+                faceDetector = new FaceDetector({ fastMode: true, maxDetectedFaces: 1 });
+            } catch (e) { faceDetector = null; }
+        }
 
-        // Caregiver & Token DOM
-        const deviceIdDisplay = document.getElementById('deviceIdDisplay');
-        const caregiverName = document.getElementById('caregiverName');
-        const caregiverLicense = document.getElementById('caregiverLicense');
-        const issuingAuthority = document.getElementById('issuingAuthority');
-        const encounterRef = document.getElementById('encounterRef');
-        const tokenOutput = document.getElementById('tokenOutput');
-        const tokenStatus = document.getElementById('tokenStatus');
-        const generateTokenBtn = document.getElementById('generateTokenBtn');
-        const copyTokenBtn = document.getElementById('copyTokenBtn');
-        const saveToVaultBtn = document.getElementById('saveToVaultBtn');
-        const vaultList = document.getElementById('vaultList');
-        const vaultCount = document.getElementById('vaultCount');
-        const clearVaultBtn = document.getElementById('clearVaultBtn');
-        const exportVaultBtn = document.getElementById('exportVaultBtn');
+        // HR constants
+        const HR_MIN_BPM = 45;
+        const HR_MAX_BPM = 160;
+        const HR_SAMPLE_INTERVAL_MS = 80;
+        const HR_MIN_WINDOW_SEC = 8;
+        const HR_MAX_WINDOW_SEC = 25;
+        const hrCanvas = document.createElement("canvas");
+        const hrCtx = hrCanvas.getContext("2d");
+
+        // DOM refs
+        const video = document.getElementById("video");
+        const overlay = document.getElementById("overlay");
+        const overlayText = document.getElementById("overlayText");
+        const statusText = document.getElementById("statusText");
+        const livenessStatus = document.getElementById("livenessStatus");
+        const progressBar = document.getElementById("progressBar");
+        const hrValueEl = document.getElementById("hrValue");
+        const hrStatusEl = document.getElementById("hrStatus");
+        const hrDebugEl = document.getElementById("hrDebug");
+        const hrQualityDot = document.getElementById("hrQualityDot");
+        const anchorIcon = document.getElementById("anchorIcon");
+        const anchorStatusText = document.getElementById("anchorStatusText");
+
+        const startCameraBtn = document.getElementById("startCameraBtn");
+        const stopCameraBtn = document.getElementById("stopCameraBtn");
+        const runLivenessBtn = document.getElementById("runLivenessBtn");
+        const startHRBtn = document.getElementById("startHRBtn");
+        const stopHRBtn = document.getElementById("stopHRBtn");
+
+        const caregiverName = document.getElementById("caregiverName");
+        const caregiverLicense = document.getElementById("caregiverLicense");
+        const issuingAuthority = document.getElementById("issuingAuthority");
+        const encounterRef = document.getElementById("encounterRef");
+        const deviceIdDisplay = document.getElementById("deviceIdDisplay");
+
+        const tokenOutput = document.getElementById("tokenOutput");
+        const tokenStatus = document.getElementById("tokenStatus");
+        const generateTokenBtn = document.getElementById("generateTokenBtn");
+        const copyTokenBtn = document.getElementById("copyTokenBtn");
+        const saveToVaultBtn = document.getElementById("saveToVaultBtn");
+        const vaultList = document.getElementById("vaultList");
+        const vaultCount = document.getElementById("vaultCount");
+        const clearVaultBtn = document.getElementById("clearVaultBtn");
+        const exportVaultBtn = document.getElementById("exportVaultBtn");
+        const verifyTokenBtn = document.getElementById("verifyTokenBtn");
+
+        const form = document.getElementById("checkupForm");
+        const formFields = document.getElementById("formFields");
+        const clearBtn = document.getElementById("clearBtn");
+        const pdfBtn = document.getElementById("pdfBtn");
+        const riskContainer = document.getElementById("riskContainer");
+        const compositeScore = document.getElementById("compositeScore");
+        const aiInsight = document.getElementById("aiInsight");
+        const historyBody = document.getElementById("historyBody");
+        const historyCount = document.getElementById("historyCount");
+        const encounterNumberSpan = document.getElementById("encounterNumber");
+        const canvas = document.getElementById("trendChart");
+        let chartInstance = null;
 
         // ============================================================
         //  UTILITY FUNCTIONS
@@ -1466,13 +1389,18 @@
             data.pain_goal = goals.pain;
             data.mobility_goal = goals.mobility;
             data.energy_goal = goals.energy;
-            // Add caregiver data
             const cg = getCaregiverData();
             data.caregiver_name = cg.name;
             data.caregiver_license = cg.license;
             data.caregiver_authority = cg.authority;
             data.encounter_ref = cg.encounter_ref;
             data.device_id = cg.device_id;
+            // ANCHOR data
+            data.anchor_liveness = livenessCompleted;
+            data.anchor_liveness_duration = livenessDurationSec;
+            data.anchor_hr_bpm = lastHREstimate ? lastHREstimate.bpm : null;
+            data.anchor_hr_quality = lastHREstimate ? lastHREstimate.quality : null;
+            data.anchor_verified = anchorVerified;
             return data;
         }
 
@@ -1547,9 +1475,6 @@
             return Math.min(100, Math.round(raw * 2));
         }
 
-        // ============================================================
-        //  CARE TIPS
-        // ============================================================
         function generateCareTips(data, goals) {
             const n = (v) => parseFloat(v) || 0;
             const pain = n(data.pain);
@@ -1602,10 +1527,10 @@
         function renderInsights(data) {
             if (!data || Object.keys(data).length === 0) {
                 riskContainer.innerHTML =
-                    `<div style="color:#6f7d8f; padding:8px 0; text-align:center; font-size:0.7rem;"><span data-i18n="saveToSeeRisk">Save an encounter to see recommendations.</span></div>`;
+                    `<div style="color:#8892b0; padding:8px 0; text-align:center; font-size:0.7rem;">Save an encounter to see recommendations.</div>`;
                 compositeScore.textContent = '—';
                 aiInsight.innerHTML =
-                    `<i class="fas fa-robot"></i> <span data-i18n="aiPlaceholder">Evidence‑based recommendations appear after saving.</span>`;
+                    `<i class="fas fa-robot"></i> <span>Evidence‑based recommendations appear after saving.</span>`;
                 return;
             }
 
@@ -1627,13 +1552,25 @@
                 let cls = 'risk-low';
                 let status = '✅';
                 if (item.glucose) {
-                    if (val > 7.0) { cls = 'risk-high'; status = '⬆️'; } else if (val > 5.6) { cls = 'risk-moderate'; status = '🔶'; } else if (val > 0) { cls = 'risk-low'; status = '✅'; } else { status = '—'; }
+                    if (val > 7.0) { cls = 'risk-high';
+                        status = '⬆️'; } else if (val > 5.6) { cls = 'risk-moderate';
+                        status = '🔶'; } else if (val > 0) { cls = 'risk-low';
+                        status = '✅'; } else { status = '—'; }
                 } else if (item.fev1) {
-                    if (val > 0 && val < 1.0) { cls = 'risk-high'; status = '⬇️'; } else if (val < 1.5) { cls = 'risk-moderate'; status = '🔶'; } else if (val > 0) { cls = 'risk-low'; status = '✅'; } else { status = '—'; }
+                    if (val > 0 && val < 1.0) { cls = 'risk-high';
+                        status = '⬇️'; } else if (val < 1.5) { cls = 'risk-moderate';
+                        status = '🔶'; } else if (val > 0) { cls = 'risk-low';
+                        status = '✅'; } else { status = '—'; }
                 } else if (item.invert) {
-                    if (val > 5) { cls = 'risk-high'; status = '⚠️'; } else if (val > 2) { cls = 'risk-moderate'; status = '🔶'; } else if (val >= 0) { cls = 'risk-low'; status = '✅'; }
+                    if (val > 5) { cls = 'risk-high';
+                        status = '⚠️'; } else if (val > 2) { cls = 'risk-moderate';
+                        status = '🔶'; } else if (val >= 0) { cls = 'risk-low';
+                        status = '✅'; }
                 } else {
-                    if (val < 4) { cls = 'risk-high'; status = '⚠️'; } else if (val < 7) { cls = 'risk-moderate'; status = '🔶'; } else if (val >= 0) { cls = 'risk-low'; status = '✅'; }
+                    if (val < 4) { cls = 'risk-high';
+                        status = '⚠️'; } else if (val < 7) { cls = 'risk-moderate';
+                        status = '🔶'; } else if (val >= 0) { cls = 'risk-low';
+                        status = '✅'; }
                 }
                 if (val === 0 && !item.glucose && !item.fev1) status = '—';
                 html +=
@@ -1641,8 +1578,8 @@
             });
             html += '</div>';
 
-            html += `<div style="font-size:0.6rem; background:#f8fafc; padding:3px 8px; border-radius:6px; margin:3px 0;">
-                        <i class="fas fa-bullseye" style="color:#005792;"></i> Goals: Pain ≤${goals.pain} · Mobility ≥${goals.mobility} · Energy ≥${goals.energy}
+            html += `<div style="font-size:0.6rem; background:#0f1428; padding:3px 8px; border-radius:6px; margin:3px 0;">
+                        <i class="fas fa-bullseye" style="color:#00b4d8;"></i> Goals: Pain ≤${goals.pain} · Mobility ≥${goals.mobility} · Energy ≥${goals.energy}
                      </div>`;
 
             riskContainer.innerHTML = html;
@@ -1657,7 +1594,8 @@
         // ============================================================
         function updateChart(patientData) {
             const sorted = [...patientData].sort((a, b) => new Date(a.date) - new Date(b.date));
-            if (chartInstance) { chartInstance.destroy(); chartInstance = null; }
+            if (chartInstance) { chartInstance.destroy();
+                chartInstance = null; }
             if (sorted.length < 1) {
                 const ctx = canvas.getContext('2d');
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -1673,11 +1611,11 @@
                     datasets: [{
                         label: 'Functionality Index',
                         data: indices,
-                        borderColor: '#005792',
-                        backgroundColor: 'rgba(0,87,146,0.1)',
+                        borderColor: '#00b4d8',
+                        backgroundColor: 'rgba(0,180,216,0.1)',
                         fill: true,
                         tension: 0.3,
-                        pointBackgroundColor: '#005792',
+                        pointBackgroundColor: '#00b4d8',
                         pointRadius: 2,
                     }]
                 },
@@ -1687,11 +1625,566 @@
                     plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) =>
                                 `Index: ${ctx.parsed.y}` } } },
                     scales: {
-                        y: { beginAtZero: true, max: 100, grid: { color: '#e9edf2' } },
-                        x: { grid: { display: false }, ticks: { font: { size: 6 } } }
+                        y: { beginAtZero: true, max: 100, grid: { color: '#1a2038' } },
+                        x: { grid: { display: false }, ticks: { font: { size: 6 }, color: '#8892b0' } }
                     }
                 }
             });
+        }
+
+        // ============================================================
+        //  ANCHOR: CAMERA
+        // ============================================================
+        async function startCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: "user", width: { ideal: 640 }, height: { ideal: 480 } },
+                    audio: false
+                });
+                video.srcObject = stream;
+                setStatus("Camera running");
+                startCameraBtn.disabled = true;
+                stopCameraBtn.disabled = false;
+                runLivenessBtn.disabled = false;
+                startHRBtn.disabled = false;
+            } catch (err) {
+                console.error(err);
+                setStatus("Cannot access camera");
+            }
+        }
+
+        function stopCamera() {
+            if (stream) {
+                stream.getTracks().forEach(t => t.stop());
+                stream = null;
+            }
+            video.srcObject = null;
+            startCameraBtn.disabled = false;
+            stopCameraBtn.disabled = true;
+            runLivenessBtn.disabled = true;
+            startHRBtn.disabled = true;
+            stopHRBtn.disabled = true;
+            setStatus("Camera stopped");
+            stopLiveness();
+            stopHRMonitoring();
+        }
+
+        function setStatus(text) {
+            statusText.textContent = text;
+        }
+
+        function showOverlay(msg) {
+            overlayText.textContent = msg;
+            overlay.classList.remove("hidden");
+        }
+
+        function hideOverlay() {
+            overlay.classList.add("hidden");
+        }
+
+        // ============================================================
+        //  ANCHOR: LIVENESS
+        // ============================================================
+        function stopLiveness() {
+            livenessRunning = false;
+            if (progressInterval) clearInterval(progressInterval);
+            progressBar.value = 0;
+            hideOverlay();
+        }
+
+        function runLiveness() {
+            if (!stream || livenessRunning) return;
+            livenessRunning = true;
+            livenessCompleted = false;
+            livenessDurationSec = null;
+            livenessStartTime = performance.now() / 1000;
+
+            const steps = [
+                { text: "Look straight into the camera", percent: 25 },
+                { text: "Turn your head slowly to the LEFT", percent: 50 },
+                { text: "Turn your head slowly to the RIGHT", percent: 75 },
+                { text: "Nod your head UP and DOWN", percent: 100 }
+            ];
+
+            let index = 0;
+            showOverlay(steps[index].text);
+            progressBar.value = steps[index].percent;
+            setStatus("Liveness running…");
+            livenessStatus.textContent = "In progress…";
+
+            progressInterval = setInterval(() => {
+                index++;
+                if (index >= steps.length) {
+                    stopLiveness();
+                    progressBar.value = 100;
+                    setStatus("Liveness completed ✓");
+                    livenessStatus.textContent = "✅ Completed";
+                    livenessCompleted = true;
+                    if (livenessStartTime != null) {
+                        livenessDurationSec = (performance.now() / 1000) - livenessStartTime;
+                    }
+                    updateAnchorStatus();
+                    return;
+                }
+                showOverlay(steps[index].text);
+                progressBar.value = steps[index].percent;
+            }, 2500);
+        }
+
+        // ============================================================
+        //  ANCHOR: OPTICAL HR (rPPG)
+        // ============================================================
+        function resetHRBuffers() {
+            hrSignal = [];
+            hrTimestamps = [];
+            lastHREstimate = null;
+        }
+
+        function startHRMonitoring() {
+            if (!stream || !video) {
+                hrStatusEl.textContent = "Start camera first.";
+                return;
+            }
+            if (hrTimer) return;
+
+            resetHRBuffers();
+            hrValueEl.textContent = "-- bpm";
+            hrStatusEl.textContent = "Collecting signal… stay still, 8–15 seconds.";
+            hrQualityDot.className = "quality-dot";
+            hrDebugEl.textContent = "";
+
+            startHRBtn.disabled = true;
+            stopHRBtn.disabled = false;
+
+            hrTimer = setInterval(sampleHRFrame, HR_SAMPLE_INTERVAL_MS);
+        }
+
+        function stopHRMonitoring() {
+            if (hrTimer) {
+                clearInterval(hrTimer);
+                hrTimer = null;
+            }
+            hrStatusEl.textContent = "HR idle. Press Start HR again to re-measure.";
+            startHRBtn.disabled = !stream;
+            stopHRBtn.disabled = true;
+            updateAnchorStatus();
+        }
+
+        async function sampleHRFrame() {
+            if (!video || video.videoWidth === 0 || video.videoHeight === 0) return;
+
+            const w = video.videoWidth;
+            const h = video.videoHeight;
+
+            let roiX, roiY, roiWidth, roiHeight;
+            let usedFace = false;
+
+            if (faceDetector) {
+                try {
+                    const faces = await faceDetector.detect(video);
+                    if (faces && faces.length > 0) {
+                        lastFaceBox = faces[0].boundingBox;
+                    }
+                } catch (e) {}
+            }
+
+            if (lastFaceBox) {
+                const box = lastFaceBox;
+                roiX = Math.max(0, box.x + box.width * 0.25);
+                roiWidth = Math.min(w - roiX, box.width * 0.5);
+                roiY = Math.max(0, box.y);
+                roiHeight = Math.min(h - roiY, box.height * 0.35);
+                usedFace = true;
+            } else {
+                roiWidth = Math.floor(w * 0.2);
+                roiHeight = Math.floor(h * 0.15);
+                roiX = Math.floor(w * 0.4);
+                roiY = Math.floor(h * 0.2);
+            }
+
+            hrCanvas.width = roiWidth;
+            hrCanvas.height = roiHeight;
+            hrCtx.drawImage(video, roiX, roiY, roiWidth, roiHeight, 0, 0, roiWidth, roiHeight);
+            const frame = hrCtx.getImageData(0, 0, roiWidth, roiHeight).data;
+
+            let sumG = 0;
+            let count = 0;
+            for (let i = 0; i < frame.length; i += 4) {
+                const g = frame[i + 1];
+                sumG += g;
+                count++;
+            }
+            if (count === 0) return;
+
+            const avgG = sumG / count;
+            const now = performance.now() / 1000;
+
+            hrSignal.push(avgG);
+            hrTimestamps.push(now);
+
+            while (hrTimestamps.length > 0 && (now - hrTimestamps[0]) > HR_MAX_WINDOW_SEC) {
+                hrTimestamps.shift();
+                hrSignal.shift();
+            }
+
+            const duration = hrTimestamps.length > 1 ?
+                (hrTimestamps[hrTimestamps.length - 1] - hrTimestamps[0]) :
+                0;
+
+            hrDebugEl.textContent =
+                "ROI: " + (usedFace ? "face-based" : "center") +
+                " | Samples: " + hrSignal.length +
+                " | Duration: " + duration.toFixed(1) + " s";
+
+            if (duration >= HR_MIN_WINDOW_SEC) {
+                const hrEstimate = estimateHeartRateFromSignal(hrSignal, hrTimestamps);
+                if (hrEstimate) {
+                    const rawBpm = hrEstimate.rawBpm;
+                    const clampedBpm = hrEstimate.bpm;
+                    const quality = hrEstimate.quality;
+
+                    hrValueEl.textContent = Math.round(clampedBpm) + " bpm";
+
+                    if (quality >= 0.05) {
+                        hrStatusEl.textContent =
+                            "HR estimated (usable signal, quality: " + (quality * 100).toFixed(0) + "%).";
+                        hrQualityDot.className = "quality-dot green";
+                        hrQuality = 'good';
+                    } else {
+                        hrStatusEl.textContent =
+                            "HR estimated (low-confidence signal, quality: " + (quality * 100).toFixed(0) + "%).";
+                        hrQualityDot.className = "quality-dot yellow";
+                        hrQuality = 'low';
+                    }
+
+                    lastHREstimate = {
+                        bpm: clampedBpm,
+                        quality: quality,
+                        durationSec: duration
+                    };
+
+                    hrDebugEl.textContent +=
+                        "\nRaw BPM: " + rawBpm.toFixed(1) +
+                        " | Clamped BPM: " + clampedBpm.toFixed(1) +
+                        " | Quality: " + (quality * 100).toFixed(1) + "%";
+                } else {
+                    hrStatusEl.textContent =
+                        "No dominant HR frequency found. Improve lighting and stay very still.";
+                    hrQualityDot.className = "quality-dot red";
+                    hrQuality = 'none';
+                }
+            } else {
+                hrStatusEl.textContent =
+                    "Collecting signal (" + duration.toFixed(1) + " s)… hold still, good light.";
+            }
+        }
+
+        function estimateHeartRateFromSignal(signal, timestamps) {
+            const N = signal.length;
+            if (N < 40) return null;
+
+            let mean = 0;
+            for (let i = 0; i < N; i++) mean += signal[i];
+            mean /= N;
+
+            const x = new Array(N);
+            for (let i = 0; i < N; i++) x[i] = signal[i] - mean;
+
+            const duration = timestamps[N - 1] - timestamps[0];
+            if (duration <= 0) return null;
+            const fs = N / duration;
+
+            const minHz = HR_MIN_BPM / 60;
+            const maxHz = HR_MAX_BPM / 60;
+
+            let bestFreq = 0;
+            let bestAmp = 0;
+            let totalAmp = 0;
+
+            for (let k = 1; k < N; k++) {
+                const freq = k * fs / N;
+                if (freq < minHz || freq > maxHz) continue;
+
+                let re = 0;
+                let im = 0;
+                const angFactor = -2 * Math.PI * k / N;
+                for (let n = 0; n < N; n++) {
+                    const angle = angFactor * n;
+                    re += x[n] * Math.cos(angle);
+                    im += x[n] * Math.sin(angle);
+                }
+                const amp = Math.sqrt(re * re + im * im);
+                if (!isFinite(amp) || amp < 0) continue;
+                totalAmp += amp;
+                if (amp > bestAmp) {
+                    bestAmp = amp;
+                    bestFreq = Math.abs(freq);
+                }
+            }
+
+            if (!bestFreq || bestAmp <= 0 || totalAmp <= 0) return null;
+
+            const rawBpm = bestFreq * 60;
+            if (!isFinite(rawBpm) || rawBpm <= 0) return null;
+
+            let bpm = rawBpm;
+            bpm = Math.max(HR_MIN_BPM, Math.min(HR_MAX_BPM, bpm));
+
+            const quality = Math.max(0, Math.min(1, bestAmp / totalAmp));
+
+            return { bpm, rawBpm, quality };
+        }
+
+        // ============================================================
+        //  ANCHOR STATUS
+        // ============================================================
+        function updateAnchorStatus() {
+            const cg = getCaregiverData();
+            const hasName = cg.name && cg.name.trim().length > 0;
+            const hasLicense = cg.license && cg.license.trim().length > 0;
+
+            if (livenessCompleted && lastHREstimate && hasName && hasLicense) {
+                anchorVerified = true;
+                anchorIcon.className = "status-icon pass";
+                anchorIcon.textContent = "✅";
+                anchorStatusText.textContent = "ANCHOR verified: Liveness ✓ HR ✓ KYC ✓";
+                generateTokenBtn.disabled = false;
+                tokenStatus.textContent = "Ready to generate ANCHOR token";
+            } else {
+                anchorVerified = false;
+                anchorIcon.className = "status-icon pending";
+                anchorIcon.textContent = "⏳";
+                let missing = [];
+                if (!livenessCompleted) missing.push("Liveness");
+                if (!lastHREstimate) missing.push("HR");
+                if (!hasName) missing.push("Name");
+                if (!hasLicense) missing.push("License");
+                anchorStatusText.textContent = "ANCHOR pending: " + (missing.length > 0 ? missing.join(", ") : "Complete all steps");
+                generateTokenBtn.disabled = true;
+                if (!livenessCompleted && !lastHREstimate && !hasName) {
+                    tokenStatus.textContent = "Run liveness, HR, and fill KYC details";
+                } else {
+                    tokenStatus.textContent = "Complete all ANCHOR steps to generate token";
+                }
+            }
+
+            // Auto-generate token when verified
+            if (anchorVerified && !lastGeneratedToken) {
+                generateToken();
+            }
+        }
+
+        // ============================================================
+        //  ANCHOR TOKEN GENERATION
+        // ============================================================
+        function generateToken() {
+            if (!anchorVerified) {
+                tokenStatus.textContent = "⚠️ ANCHOR verification required first";
+                return;
+            }
+
+            const cg = getCaregiverData();
+            const formData = getFormData();
+            const index = computeCareIndex(formData);
+
+            const nowSec = Math.floor(Date.now() / 1000);
+            const expSec = nowSec + 600; // 10 min validity
+
+            const header = {
+                alg: "HS256",
+                typ: "JWT",
+                kid: "anchor-session-key",
+                device_id: deviceId,
+                anchor_version: "1.0.0"
+            };
+
+            const payload = {
+                // ANCHOR verification data
+                anchor: {
+                    liveness_completed: livenessCompleted,
+                    liveness_duration_sec: livenessDurationSec,
+                    hr_bpm: lastHREstimate ? Math.round(lastHREstimate.bpm) : null,
+                    hr_quality: lastHREstimate ? Math.round(lastHREstimate.quality * 100) : null,
+                    verified_at: new Date().toISOString(),
+                    device_id: deviceId,
+                },
+                // KYC data
+                kyc: {
+                    caregiver_name: cg.name,
+                    caregiver_license: cg.license,
+                    issuing_authority: cg.authority,
+                    encounter_ref: cg.encounter_ref,
+                },
+                // Assessment data
+                assessment: {
+                    functionality_index: index,
+                    pain: parseFloat(formData.pain) || 0,
+                    mobility: parseFloat(formData.mobility) || 0,
+                    fatigue: parseFloat(formData.fatigue) || 0,
+                    function: parseFloat(formData.function) || 0,
+                    profile: currentProfile,
+                },
+                // Token metadata
+                iat: nowSec,
+                exp: expSec,
+                jti: generateSessionId(),
+                version: "anchor-token-1.0.0"
+            };
+
+            const encodedHeader = base64UrlEncode(JSON.stringify(header));
+            const encodedPayload = base64UrlEncode(JSON.stringify(payload));
+            const signature = base64UrlEncode(TOKEN_KEY_STRING);
+
+            const token = encodedHeader + "." + encodedPayload + "." + signature;
+            tokenOutput.value = token;
+            lastGeneratedToken = token;
+            tokenStatus.textContent = "✅ ANCHOR token generated. Share with verifier.";
+            copyTokenBtn.disabled = false;
+            saveToVaultBtn.disabled = false;
+        }
+
+        // ============================================================
+        //  TOKEN VAULT
+        // ============================================================
+        function renderVault() {
+            if (tokenVault.length === 0) {
+                vaultList.innerHTML =
+                    `<div style="color:#8892b0; font-size:0.6rem; text-align:center; padding:4px 0;">No tokens in vault.</div>`;
+                vaultCount.textContent = '0 tokens';
+                return;
+            }
+            let html = '';
+            tokenVault.forEach((entry, idx) => {
+                const shortToken = entry.token ? entry.token.substring(0, 40) + '...' : '';
+                const statusClass = entry.verified ? 'verified' : 'pending';
+                const statusText = entry.verified ? '✓ Verified' : '⏳ Pending';
+                html += `
+                    <div class="vault-item">
+                        <span class="vault-token">${shortToken}</span>
+                        <span class="vault-status ${statusClass}">${statusText}</span>
+                        <span style="font-size:0.5rem; color:#8892b0;">${entry.date || ''}</span>
+                        <span class="vault-actions">
+                            <button onclick="copyVaultToken(${idx})"><i class="fas fa-copy"></i></button>
+                            <button onclick="deleteVaultToken(${idx})"><i class="fas fa-trash"></i></button>
+                        </span>
+                    </div>
+                `;
+            });
+            vaultList.innerHTML = html;
+            vaultCount.textContent = tokenVault.length + ' tokens';
+        }
+
+        function saveTokenToVault() {
+            const token = tokenOutput.value.trim();
+            if (!token) {
+                tokenStatus.textContent = '⚠️ No token to save. Generate one first.';
+                return;
+            }
+            tokenVault.push({
+                token: token,
+                date: new Date().toISOString(),
+                caregiver: caregiverName.value || 'Unknown',
+                device: deviceId,
+                verified: false,
+            });
+            localStorage.setItem(VAULT_KEY, JSON.stringify(tokenVault));
+            renderVault();
+            tokenStatus.textContent = '✅ Token saved to vault.';
+        }
+
+        window.copyVaultToken = function(idx) {
+            const entry = tokenVault[idx];
+            if (!entry) return;
+            navigator.clipboard.writeText(entry.token).then(() => {
+                tokenStatus.textContent = '✅ Token copied from vault.';
+            }).catch(() => {
+                tokenStatus.textContent = '⚠️ Could not copy. Select and copy manually.';
+            });
+        };
+
+        window.deleteVaultToken = function(idx) {
+            if (!confirm('Delete this token from vault?')) return;
+            tokenVault.splice(idx, 1);
+            localStorage.setItem(VAULT_KEY, JSON.stringify(tokenVault));
+            renderVault();
+            tokenStatus.textContent = '🗑️ Token deleted from vault.';
+        };
+
+        function clearVault() {
+            if (!confirm('Delete ALL tokens from vault?')) return;
+            tokenVault = [];
+            localStorage.setItem(VAULT_KEY, JSON.stringify(tokenVault));
+            renderVault();
+            tokenStatus.textContent = '🗑️ Vault cleared.';
+        }
+
+        function exportVault() {
+            if (tokenVault.length === 0) {
+                tokenStatus.textContent = '⚠️ Vault is empty.';
+                return;
+            }
+            const blob = new Blob([JSON.stringify(tokenVault, null, 2)], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `anchor_vault_${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+            tokenStatus.textContent = '✅ Vault exported.';
+        }
+
+        function verifyTokenFromVault() {
+            const token = tokenOutput.value.trim();
+            if (!token) {
+                tokenStatus.textContent = '⚠️ No token to verify. Generate or paste one.';
+                return;
+            }
+
+            try {
+                const parts = token.split('.');
+                if (parts.length !== 3) {
+                    tokenStatus.textContent = '❌ Invalid token format.';
+                    return;
+                }
+
+                const header = JSON.parse(atob(parts[0].replace(/-/g, '+').replace(/_/g, '/')));
+                const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+                const signature = parts[2];
+
+                // Verify signature
+                const expectedSignature = base64UrlEncode(TOKEN_KEY_STRING);
+                if (signature !== expectedSignature) {
+                    tokenStatus.textContent = '❌ Token signature verification FAILED.';
+                    return;
+                }
+
+                // Check expiration
+                const now = Math.floor(Date.now() / 1000);
+                if (payload.exp && payload.exp < now) {
+                    tokenStatus.textContent = '❌ Token has EXPIRED.';
+                    return;
+                }
+
+                // Token is valid
+                tokenStatus.textContent = '✅ Token VERIFIED successfully!';
+                tokenStatus.textContent += ` | Caregiver: ${payload.kyc?.caregiver_name || 'Unknown'}`;
+                if (payload.anchor?.liveness_completed) {
+                    tokenStatus.textContent += ` | Liveness: ✓ HR: ${payload.anchor?.hr_bpm || '?'} bpm`;
+                }
+
+                // Mark as verified in vault if present
+                const idx = tokenVault.findIndex(t => t.token === token);
+                if (idx >= 0) {
+                    tokenVault[idx].verified = true;
+                    localStorage.setItem(VAULT_KEY, JSON.stringify(tokenVault));
+                    renderVault();
+                }
+
+            } catch (e) {
+                tokenStatus.textContent = '❌ Token verification error: ' + e.message;
+            }
         }
 
         // ============================================================
@@ -1700,7 +2193,8 @@
         function saveEncounter(e) {
             e.preventDefault();
             const data = getFormData();
-            const hasValue = Object.values(data).some(v => v && v.trim !== undefined && v.trim() !== '' || typeof v === 'number' && v > 0);
+            const hasValue = Object.values(data).some(v => v && v.trim !== undefined && v.trim() !== '' || typeof v ===
+                'number' && v > 0);
             if (!hasValue) { alert('Please enter at least one reading.'); return; }
 
             const id = generateEncounterId();
@@ -1708,7 +2202,6 @@
             encounters.push(encounter);
             localStorage.setItem(STORAGE_KEY, JSON.stringify(encounters));
 
-            currentEncounterId = id;
             encounterNumberSpan.textContent = id.slice(-4);
             renderInsights(data);
             renderHistory();
@@ -1721,7 +2214,7 @@
         function renderHistory() {
             if (encounters.length === 0) {
                 historyBody.innerHTML =
-                    `<tr><td colspan="13" style="text-align:center; color:#6f7d8f; font-size:0.65rem;"><span data-i18n="noEncounters">No encounters yet.</span></td></tr>`;
+                    `<tr><td colspan="13" style="text-align:center; color:#8892b0; font-size:0.65rem;">No encounters yet.</td></tr>`;
                 historyCount.textContent = '0 records';
                 updateChart([]);
                 return;
@@ -1774,7 +2267,6 @@
                     buildForm();
                     setFormData(data);
                     renderInsights(data);
-                    currentEncounterId = data.id;
                     encounterNumberSpan.textContent = data.id.slice(-4);
                 });
             });
@@ -1786,12 +2278,6 @@
                     encounters = encounters.filter(e => e.id !== id);
                     localStorage.setItem(STORAGE_KEY, JSON.stringify(encounters));
                     renderHistory();
-                    if (currentEncounterId === id) {
-                        currentEncounterId = null;
-                        encounterNumberSpan.textContent = '0000';
-                        clearFormValues();
-                        renderInsights(null);
-                    }
                     updateChart(encounters);
                 });
             });
@@ -1811,171 +2297,9 @@
             renderInsights(null);
             compositeScore.textContent = '—';
             aiInsight.innerHTML =
-                `<i class="fas fa-robot"></i> <span data-i18n="aiPlaceholder">Evidence‑based recommendations appear after saving.</span>`;
-            currentEncounterId = null;
+                `<i class="fas fa-robot"></i> <span>Evidence‑based recommendations appear after saving.</span>`;
             encounterNumberSpan.textContent = '0000';
             renderHistory();
-        }
-
-        // ============================================================
-        //  TOKEN GENERATION (ANCHOR-compatible)
-        // ============================================================
-        function generateSessionToken() {
-            tokenOutput.value = '';
-            tokenStatus.textContent = 'Generating...';
-
-            const cg = getCaregiverData();
-            if (!cg.name) {
-                tokenStatus.textContent = '⚠️ Please enter caregiver name.';
-                return;
-            }
-
-            const nowSec = Math.floor(Date.now() / 1000);
-            const expSec = nowSec + 600; // 10 min validity
-
-            const header = {
-                alg: "HS256",
-                typ: "JWT",
-                kid: "antideepfake-session-key",
-                device_id: deviceId,
-            };
-
-            // Get current assessment data
-            const formData = getFormData();
-            const index = computeCareIndex(formData);
-
-            const payload = {
-                sub: "did:caregiver:" + cg.name.replace(/\s+/g, '_'),
-                device_id: deviceId,
-                caregiver_name: cg.name,
-                caregiver_license: cg.license || null,
-                issuing_authority: cg.authority || null,
-                encounter_ref: cg.encounter_ref || null,
-                context: "patient_assessment",
-                assessment_date: new Date().toISOString().split('T')[0],
-                functionality_index: index,
-                pain: parseFloat(formData.pain) || 0,
-                mobility: parseFloat(formData.mobility) || 0,
-                fatigue: parseFloat(formData.fatigue) || 0,
-                function: parseFloat(formData.function) || 0,
-                iat: nowSec,
-                exp: expSec,
-                jti: generateSessionId(),
-                version: "anchor-session-1.0.0"
-            };
-
-            const encodedHeader = base64UrlEncode(JSON.stringify(header));
-            const encodedPayload = base64UrlEncode(JSON.stringify(payload));
-            const signature = base64UrlEncode(TOKEN_KEY_STRING);
-
-            const token = encodedHeader + "." + encodedPayload + "." + signature;
-            tokenOutput.value = token;
-            lastGeneratedToken = token;
-            tokenStatus.textContent = '✅ Token generated. Share with verifier manually.';
-            copyTokenBtn.disabled = false;
-            saveToVaultBtn.disabled = false;
-        }
-
-        // ============================================================
-        //  TOKEN VAULT
-        // ============================================================
-        function renderVault() {
-            if (tokenVault.length === 0) {
-                vaultList.innerHTML =
-                    `<div style="color:#6f7d8f; font-size:0.6rem; text-align:center; padding:4px 0;">No tokens in vault. Generate and save tokens for verification.</div>`;
-                vaultCount.textContent = '0 tokens';
-                return;
-            }
-            let html = '';
-            tokenVault.forEach((entry, idx) => {
-                const shortToken = entry.token ? entry.token.substring(0, 40) + '...' : '';
-                html += `
-                    <div class="vault-item">
-                        <span class="vault-token">${shortToken}</span>
-                        <span style="font-size:0.5rem; color:#6f7d8f;">${entry.date || ''}</span>
-                        <span class="vault-actions">
-                            <button class="btn-sm" onclick="copyVaultToken(${idx})"><i class="fas fa-copy"></i></button>
-                            <button class="btn-sm danger" onclick="deleteVaultToken(${idx})"><i class="fas fa-trash"></i></button>
-                        </span>
-                    </div>
-                `;
-            });
-            vaultList.innerHTML = html;
-            vaultCount.textContent = tokenVault.length + ' tokens';
-        }
-
-        function saveTokenToVault() {
-            const token = tokenOutput.value.trim();
-            if (!token) {
-                tokenStatus.textContent = '⚠️ No token to save. Generate one first.';
-                return;
-            }
-            tokenVault.push({
-                token: token,
-                date: new Date().toISOString(),
-                caregiver: caregiverName.value || 'Unknown',
-                device: deviceId,
-            });
-            localStorage.setItem(VAULT_KEY, JSON.stringify(tokenVault));
-            renderVault();
-            tokenStatus.textContent = '✅ Token saved to vault.';
-        }
-
-        // Global functions for vault actions
-        window.copyVaultToken = function(idx) {
-            const entry = tokenVault[idx];
-            if (!entry) return;
-            navigator.clipboard.writeText(entry.token).then(() => {
-                tokenStatus.textContent = '✅ Token copied from vault.';
-            }).catch(() => {
-                tokenStatus.textContent = '⚠️ Could not copy. Select and copy manually.';
-            });
-        };
-
-        window.deleteVaultToken = function(idx) {
-            if (!confirm('Delete this token from vault?')) return;
-            tokenVault.splice(idx, 1);
-            localStorage.setItem(VAULT_KEY, JSON.stringify(tokenVault));
-            renderVault();
-            tokenStatus.textContent = '🗑️ Token deleted from vault.';
-        };
-
-        function clearVault() {
-            if (!confirm('Delete ALL tokens from vault?')) return;
-            tokenVault = [];
-            localStorage.setItem(VAULT_KEY, JSON.stringify(tokenVault));
-            renderVault();
-            tokenStatus.textContent = '🗑️ Vault cleared.';
-        }
-
-        function exportVault() {
-            if (tokenVault.length === 0) {
-                tokenStatus.textContent = '⚠️ Vault is empty.';
-                return;
-            }
-            const blob = new Blob([JSON.stringify(tokenVault, null, 2)], { type: "application/json" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `token_vault_${new Date().toISOString().split('T')[0]}.json`;
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            URL.revokeObjectURL(url);
-            tokenStatus.textContent = '✅ Vault exported.';
-        }
-
-        // ============================================================
-        //  COPY TOKEN
-        // ============================================================
-        function copyToken() {
-            const token = tokenOutput.value.trim();
-            if (!token) return;
-            navigator.clipboard.writeText(token).then(() => {
-                tokenStatus.textContent = '✅ Token copied to clipboard. Share with verifier.';
-            }).catch(() => {
-                tokenStatus.textContent = '⚠️ Could not copy. Select and copy manually.';
-            });
         }
 
         // ============================================================
@@ -1988,12 +2312,10 @@
                 return;
             }
 
-            const dict = i18n[currentLang] || i18n.en;
             const idx = computeCareIndex(latest);
             const tips = generateCareTips(latest, getGoals());
             const last5 = [...encounters].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
 
-            // ICF domains
             const icfDomains = [];
             const pain = parseFloat(latest.pain) || 0;
             const mobility = parseFloat(latest.mobility) || 0;
@@ -2057,100 +2379,108 @@
             let tipsHtml = tips.map(t => `<li>${t}</li>`).join('');
 
             const reportHTML = `
-                <div class="pdf-report">
-                    <div class="pdf-header">
-                        <a href="https://virtualcaresolution.de" target="_blank" class="pdf-logo">
-                            <span class="logo-v">V</span>
-                            <span class="logo-text">IRTUAL <span>SOLUTIONS</span></span>
-                        </a>
-                        <div class="pdf-title">
-                            ${dict.pdfTitle}
-                            <small>${dict.pdfFooter}</small>
+                <div class="pdf-report" style="background:#0b1020; color:#f5f5f5; padding:30px 35px;">
+                    <div class="pdf-header" style="border-bottom:3px solid #005792; padding-bottom:15px; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center;">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span style="font-size:2.8rem; font-weight:900; color:#005792; line-height:1;">V</span>
+                            <span style="font-size:1.2rem; font-weight:700; color:#f5f5f5;">IRTUAL <span style="color:#005792;">SOLUTIONS</span></span>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="font-size:1.1rem; font-weight:700; color:#005792;">Care Report</div>
+                            <div style="font-size:0.7rem; color:#8892b0;">Powered by MyMedfit BRAVO PRO · ANCHOR</div>
                         </div>
                     </div>
 
-                    <div class="pdf-section">
-                        <h4>${dict.pdfPatient}</h4>
-                        <div class="pdf-grid-2">
-                            <div class="item"><span class="label">${dict.pdfGender}</span><span class="value">${latest.gender || '—'}</span></div>
-                            <div class="item"><span class="label">${dict.pdfAge}</span><span class="value">${latest.age || '—'}</span></div>
-                            <div class="item"><span class="label">BMI</span><span class="value">${latest.bmi ? latest.bmi.toFixed(1) : '—'}</span></div>
-                            <div class="item"><span class="label">${dict.pdfDate}</span><span class="value">${new Date().toISOString().split('T')[0]}</span></div>
-                            <div class="item"><span class="label">Profile</span><span class="value">${latest.profile || '—'}</span></div>
-                            <div class="item"><span class="label">Caregiver</span><span class="value">${latest.caregiver_name || '—'}</span></div>
-                            <div class="item"><span class="label">Device ID</span><span class="value" style="font-family:monospace;font-size:0.6rem;">${latest.device_id || '—'}</span></div>
+                    <div style="margin-bottom:16px;">
+                        <h4 style="font-size:0.85rem; font-weight:700; color:#005792; border-bottom:1px solid #1a2038; padding-bottom:4px; margin-bottom:8px;">Patient</h4>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px 16px; font-size:0.75rem;">
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Gender</span><span style="font-weight:600;">${latest.gender || '—'}</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Age</span><span style="font-weight:600;">${latest.age || '—'}</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">BMI</span><span style="font-weight:600;">${latest.bmi ? latest.bmi.toFixed(1) : '—'}</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Profile</span><span style="font-weight:600;">${latest.profile || '—'}</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Caregiver</span><span style="font-weight:600;">${latest.caregiver_name || '—'}</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Device ID</span><span style="font-weight:600;font-family:monospace;font-size:0.6rem;">${latest.device_id || '—'}</span></div>
                         </div>
                     </div>
 
-                    <div class="pdf-section">
-                        <h4>${dict.pdfCurrentReadings}</h4>
-                        <div class="pdf-grid-2">
-                            <div class="item"><span class="label">Pain (NRS 0-10)</span><span class="value">${latest.pain || '—'}</span></div>
-                            <div class="item"><span class="label">Mobility (0-10)</span><span class="value">${latest.mobility || '—'}</span></div>
-                            <div class="item"><span class="label">Fatigue (0-10)</span><span class="value">${latest.fatigue || '—'}</span></div>
-                            <div class="item"><span class="label">Global Function (0-10)</span><span class="value">${latest.function || '—'}</span></div>
-                            <div class="item"><span class="label">Heart Rate (bpm)</span><span class="value">${latest.hr || '—'}</span></div>
-                            <div class="item"><span class="label">SBP / DBP (mmHg)</span><span class="value">${latest.sbp || '—'} / ${latest.dbp || '—'}</span></div>
-                            <div class="item"><span class="label">Fasting Glucose (mmol/L)</span><span class="value">${latest.glucose || '—'}</span></div>
-                            <div class="item"><span class="label">HbA1c (%)</span><span class="value">${latest.hba1c || '—'}</span></div>
-                            <div class="item"><span class="label">Total Cholesterol (mmol/L)</span><span class="value">${latest.chol || '—'}</span></div>
-                            <div class="item"><span class="label">LDL (mmol/L)</span><span class="value">${latest.ldl || '—'}</span></div>
-                            <div class="item"><span class="label">HDL (mmol/L)</span><span class="value">${latest.hdl || '—'}</span></div>
-                            <div class="item"><span class="label">Triglycerides (mmol/L)</span><span class="value">${latest.trig || '—'}</span></div>
-                            <div class="item"><span class="label">Creatinine (μmol/L)</span><span class="value">${latest.creatinine || '—'}</span></div>
-                            <div class="item"><span class="label">eGFR (mL/min/1.73m²)</span><span class="value">${latest.egfr || '—'}</span></div>
-                            <div class="item"><span class="label">Haemoglobin (Hb) (g/dL)</span><span class="value">${latest.hb || '—'}</span></div>
-                            <div class="item"><span class="label">Albumin (g/L)</span><span class="value">${latest.albumin || '—'}</span></div>
-                            <div class="item"><span class="label">CRP (mg/L)</span><span class="value">${latest.crp || '—'}</span></div>
-                            <div class="item"><span class="label">Ejection Fraction (%)</span><span class="value">${latest.ef || '—'}</span></div>
-                            ${latest.bnp ? `<div class="item"><span class="label">BNP/NT‑proBNP (pg/mL)</span><span class="value">${latest.bnp}</span></div>` : ''}
-                            <div class="item"><span class="label">FEV1 (L)</span><span class="value">${latest.fev1 || '—'}</span></div>
-                            <div class="item"><span class="label">FVC (L)</span><span class="value">${latest.fvc || '—'}</span></div>
-                            ${latest.bmd_t_score ? `<div class="item"><span class="label">BMD T‑Score (SD)</span><span class="value">${latest.bmd_t_score}</span></div>` : ''}
-                            ${latest.exercise ? `<div class="item"><span class="label">Exercise (min/day)</span><span class="value">${latest.exercise}</span></div>` : ''}
-                            ${latest.comfort ? `<div class="item"><span class="label">Comfort Score (/10)</span><span class="value">${latest.comfort}</span></div>` : ''}
+                    <div style="margin-bottom:16px;">
+                        <h4 style="font-size:0.85rem; font-weight:700; color:#005792; border-bottom:1px solid #1a2038; padding-bottom:4px; margin-bottom:8px;">ANCHOR Verification</h4>
+                        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:4px 16px; font-size:0.7rem;">
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Liveness</span><span style="font-weight:600;">${latest.anchor_liveness ? '✅ Completed' : '❌ Not run'}</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">HR (rPPG)</span><span style="font-weight:600;">${latest.anchor_hr_bpm ? latest.anchor_hr_bpm + ' bpm' : '—'}</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Verified</span><span style="font-weight:600;">${latest.anchor_verified ? '✅ Yes' : '❌ No'}</span></div>
                         </div>
                     </div>
 
-                    <div class="pdf-section">
-                        <h4>${dict.pdfCareIndex}</h4>
+                    <div style="margin-bottom:16px;">
+                        <h4 style="font-size:0.85rem; font-weight:700; color:#005792; border-bottom:1px solid #1a2038; padding-bottom:4px; margin-bottom:8px;">Current Readings</h4>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px 16px; font-size:0.7rem;">
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Pain (NRS)</span><span style="font-weight:600;">${latest.pain || '—'}</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Mobility</span><span style="font-weight:600;">${latest.mobility || '—'}</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Fatigue</span><span style="font-weight:600;">${latest.fatigue || '—'}</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Global Function</span><span style="font-weight:600;">${latest.function || '—'}</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Heart Rate</span><span style="font-weight:600;">${latest.hr || '—'} bpm</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">SBP/DBP</span><span style="font-weight:600;">${latest.sbp || '—'}/${latest.dbp || '—'} mmHg</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Glucose</span><span style="font-weight:600;">${latest.glucose || '—'} mmol/L</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">HbA1c</span><span style="font-weight:600;">${latest.hba1c || '—'} %</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Cholesterol</span><span style="font-weight:600;">${latest.chol || '—'} mmol/L</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">LDL</span><span style="font-weight:600;">${latest.ldl || '—'} mmol/L</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">HDL</span><span style="font-weight:600;">${latest.hdl || '—'} mmol/L</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Triglycerides</span><span style="font-weight:600;">${latest.trig || '—'} mmol/L</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Creatinine</span><span style="font-weight:600;">${latest.creatinine || '—'} μmol/L</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">eGFR</span><span style="font-weight:600;">${latest.egfr || '—'} mL/min</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Haemoglobin</span><span style="font-weight:600;">${latest.hb || '—'} g/dL</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Albumin</span><span style="font-weight:600;">${latest.albumin || '—'} g/L</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">CRP</span><span style="font-weight:600;">${latest.crp || '—'} mg/L</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Ejection Fraction</span><span style="font-weight:600;">${latest.ef || '—'} %</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">FEV1</span><span style="font-weight:600;">${latest.fev1 || '—'} L</span></div>
+                            <div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">FVC</span><span style="font-weight:600;">${latest.fvc || '—'} L</span></div>
+                            ${latest.bnp ? `<div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">BNP</span><span style="font-weight:600;">${latest.bnp} pg/mL</span></div>` : ''}
+                            ${latest.bmd_t_score ? `<div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">BMD T-Score</span><span style="font-weight:600;">${latest.bmd_t_score} SD</span></div>` : ''}
+                            ${latest.exercise ? `<div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Exercise</span><span style="font-weight:600;">${latest.exercise} min/day</span></div>` : ''}
+                            ${latest.comfort ? `<div style="display:flex; justify-content:space-between; padding:2px 0; border-bottom:1px solid #1a2038;"><span style="color:#8892b0;">Comfort Score</span><span style="font-weight:600;">${latest.comfort} /10</span></div>` : ''}
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:16px;">
+                        <h4 style="font-size:0.85rem; font-weight:700; color:#005792; border-bottom:1px solid #1a2038; padding-bottom:4px; margin-bottom:8px;">Functionality Index</h4>
                         <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-                            <span style="font-size:2rem; font-weight:800; color:#005792;">${idx}</span>
-                            <span class="pdf-risk-badge ${idx < 40 ? 'pdf-risk-high' : idx < 65 ? 'pdf-risk-moderate' : 'pdf-risk-low'}">
+                            <span style="font-size:2rem; font-weight:800; color:#00b4d8;">${idx}</span>
+                            <span class="pdf-risk-badge ${idx < 40 ? 'pdf-risk-high' : idx < 65 ? 'pdf-risk-moderate' : 'pdf-risk-low'}" style="display:inline-block; padding:2px 12px; border-radius:30px; font-size:0.7rem; font-weight:700; text-transform:uppercase; ${idx < 40 ? 'background:#f8d7da;color:#721c24;' : idx < 65 ? 'background:#fff3cd;color:#856404;' : 'background:#d4edda;color:#155724;'}">
                                 ${idx < 40 ? '⚠️ High Risk' : idx < 65 ? '🔶 Moderate' : '✅ Good'}
                             </span>
-                            <span style="font-size:0.7rem; color:#4a5b6e;">(0–100, higher is better)</span>
+                            <span style="font-size:0.7rem; color:#8892b0;">(0–100, higher is better)</span>
                         </div>
                     </div>
 
-                    <div class="pdf-section">
-                        <h4>${dict.pdfIcfDomains}</h4>
-                        <ul style="font-size:0.7rem; margin:0; padding-left:18px; columns:2;">
+                    <div style="margin-bottom:16px;">
+                        <h4 style="font-size:0.85rem; font-weight:700; color:#005792; border-bottom:1px solid #1a2038; padding-bottom:4px; margin-bottom:8px;">ICF Domains</h4>
+                        <ul style="font-size:0.7rem; margin:0; padding-left:18px; columns:2; color:#f5f5f5;">
                             ${icfDomains.map(d => `<li>${d}</li>`).join('')}
                         </ul>
                     </div>
 
-                    <div class="pdf-section">
-                        <h4>${dict.pdfTips}</h4>
-                        <div class="pdf-tips">
-                            <ul>${tipsHtml}</ul>
+                    <div style="margin-bottom:16px;">
+                        <h4 style="font-size:0.85rem; font-weight:700; color:#005792; border-bottom:1px solid #1a2038; padding-bottom:4px; margin-bottom:8px;">Care Tips</h4>
+                        <div style="font-size:0.7rem; background:#0f1428; padding:10px 14px; border-radius:8px; border-left:4px solid #00b4d8;">
+                            <ul style="margin:4px 0 0 16px; padding:0; color:#f5f5f5;">${tipsHtml}</ul>
                         </div>
                     </div>
 
                     ${last5.length > 0 ? `
-                    <div class="pdf-section">
-                        <h4>${dict.pdfTrend}</h4>
-                        <table class="pdf-table">
+                    <div style="margin-bottom:16px;">
+                        <h4 style="font-size:0.85rem; font-weight:700; color:#005792; border-bottom:1px solid #1a2038; padding-bottom:4px; margin-bottom:8px;">Trend Summary (last 5)</h4>
+                        <table style="width:100%; font-size:0.65rem; border-collapse:collapse; margin-top:6px; color:#f5f5f5;">
                             <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Pain</th>
-                                    <th>Mobility</th>
-                                    <th>Fatigue</th>
-                                    <th>Function</th>
-                                    <th>Glucose</th>
-                                    <th>FEV1</th>
-                                    <th>Index</th>
+                                    <th style="background:#0f1428; padding:4px 6px; text-align:left; font-weight:700; border-bottom:2px solid #1a2038; color:#8892b0;">Date</th>
+                                    <th style="background:#0f1428; padding:4px 6px; text-align:left; font-weight:700; border-bottom:2px solid #1a2038; color:#8892b0;">Pain</th>
+                                    <th style="background:#0f1428; padding:4px 6px; text-align:left; font-weight:700; border-bottom:2px solid #1a2038; color:#8892b0;">Mobility</th>
+                                    <th style="background:#0f1428; padding:4px 6px; text-align:left; font-weight:700; border-bottom:2px solid #1a2038; color:#8892b0;">Fatigue</th>
+                                    <th style="background:#0f1428; padding:4px 6px; text-align:left; font-weight:700; border-bottom:2px solid #1a2038; color:#8892b0;">Function</th>
+                                    <th style="background:#0f1428; padding:4px 6px; text-align:left; font-weight:700; border-bottom:2px solid #1a2038; color:#8892b0;">Glucose</th>
+                                    <th style="background:#0f1428; padding:4px 6px; text-align:left; font-weight:700; border-bottom:2px solid #1a2038; color:#8892b0;">FEV1</th>
+                                    <th style="background:#0f1428; padding:4px 6px; text-align:left; font-weight:700; border-bottom:2px solid #1a2038; color:#8892b0;">Index</th>
                                 </tr>
                             </thead>
                             <tbody>${trendRows}</tbody>
@@ -2158,8 +2488,8 @@
                     </div>
                     ` : ''}
 
-                    <div class="pdf-footer">
-                        <a href="https://virtualcaresolution.de" target="_blank">virtualcaresolution.de</a> · ${dict.pdfFooter}
+                    <div style="margin-top:20px; padding-top:12px; border-top:2px solid #1a2038; text-align:center; font-size:0.6rem; color:#8892b0;">
+                        <a href="https://virtualcaresolution.de" target="_blank" style="color:#00b4d8; text-decoration:none; font-weight:600;">virtualcaresolution.de</a> · Powered by MyMedfit BRAVO PRO · ANCHOR
                     </div>
                 </div>
             `;
@@ -2191,19 +2521,26 @@
         }
 
         // ============================================================
-        //  I18N
+        //  COPY TOKEN
+        // ============================================================
+        function copyToken() {
+            const token = tokenOutput.value.trim();
+            if (!token) return;
+            navigator.clipboard.writeText(token).then(() => {
+                tokenStatus.textContent = '✅ Token copied to clipboard. Share with verifier.';
+            }).catch(() => {
+                tokenStatus.textContent = '⚠️ Could not copy. Select and copy manually.';
+            });
+        }
+
+        // ============================================================
+        //  I18N (placeholder)
         // ============================================================
         function applyLanguage(lang) {
-            currentLang = lang;
-            langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-            const dict = i18n[lang] || i18n.en;
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.dataset.i18n;
-                if (dict[key] !== undefined) el.textContent = dict[key];
+            // Simplified - just toggles active state
+            document.querySelectorAll('.lang-btn').forEach(b => {
+                b.classList.toggle('active', b.dataset.lang === lang);
             });
-            const genderSelect = document.getElementById('gender');
-            const opts = genderSelect.options;
-            if (lang === 'ar') { opts[0].text = 'أنثى'; opts[1].text = 'ذكر'; opts[2].text = 'متنوع'; } else if (lang === 'de') { opts[0].text = 'Weiblich'; opts[1].text = 'Männlich'; opts[2].text = 'Divers'; } else if (lang === 'es') { opts[0].text = 'Femenino'; opts[1].text = 'Masculino'; opts[2].text = 'Diverso'; } else { opts[0].text = 'Female'; opts[1].text = 'Male'; opts[2].text = 'Diverse'; }
         }
 
         // ============================================================
@@ -2213,22 +2550,56 @@
             try {
                 const res = await fetch('https://api.ipify.org?format=json');
                 const data = await res.json();
-                ipDisplay.textContent = data.ip || '—';
-            } catch { ipDisplay.textContent = '—'; }
+                document.getElementById('ipDisplay').textContent = data.ip || '—';
+            } catch { document.getElementById('ipDisplay').textContent = '—'; }
         }
 
         // ============================================================
         //  INIT
         // ============================================================
         function init() {
-            console.log('=== MyMedfit Bravo PRO Initializing ===');
+            console.log('=== MyMedfit Bravo PRO + ANCHOR Initializing ===');
             console.log('Device ID:', deviceId);
 
             deviceIdDisplay.textContent = deviceId.substring(0, 12) + '…';
 
             buildForm();
-            console.log('Form built with', document.getElementById('formFields').children.length, 'fields');
+            renderHistory();
+            renderVault();
+            fetchIP();
 
+            // Camera controls
+            startCameraBtn.addEventListener('click', startCamera);
+            stopCameraBtn.addEventListener('click', stopCamera);
+            runLivenessBtn.addEventListener('click', runLiveness);
+            startHRBtn.addEventListener('click', startHRMonitoring);
+            stopHRBtn.addEventListener('click', stopHRMonitoring);
+
+            // Caregiver input listeners
+            [caregiverName, caregiverLicense, issuingAuthority].forEach(el => {
+                el.addEventListener('input', updateAnchorStatus);
+            });
+
+            // Token controls
+            generateTokenBtn.addEventListener('click', generateToken);
+            copyTokenBtn.addEventListener('click', copyToken);
+            saveToVaultBtn.addEventListener('click', saveTokenToVault);
+            clearVaultBtn.addEventListener('click', clearVault);
+            exportVaultBtn.addEventListener('click', exportVault);
+            verifyTokenBtn.addEventListener('click', verifyTokenFromVault);
+
+            // Form controls
+            form.addEventListener('submit', saveEncounter);
+            clearBtn.addEventListener('click', function() {
+                clearFormValues();
+                renderInsights(null);
+                compositeScore.textContent = '—';
+                aiInsight.innerHTML = `<i class="fas fa-robot"></i> <span>Evidence‑based recommendations appear after saving.</span>`;
+                encounterNumberSpan.textContent = '0000';
+            });
+            pdfBtn.addEventListener('click', generatePDFReport);
+
+            // Profile buttons
             document.querySelectorAll('.profile-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const profile = this.dataset.profile;
@@ -2236,6 +2607,14 @@
                 });
             });
 
+            // Language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    applyLanguage(this.dataset.lang);
+                });
+            });
+
+            // Load saved data if any
             if (encounters.length > 0) {
                 const latest = encounters[encounters.length - 1];
                 setFormData(latest);
@@ -2246,58 +2625,13 @@
                 buildForm();
                 setFormData(latest);
                 renderInsights(latest);
-                currentEncounterId = latest.id;
                 encounterNumberSpan.textContent = latest.id.slice(-4);
             } else {
                 clearFormValues();
                 renderInsights(null);
             }
-            renderHistory();
-            renderVault();
-            fetchIP();
 
-            form.addEventListener('submit', saveEncounter);
-
-            clearBtn.addEventListener('click', function() {
-                clearFormValues();
-                renderInsights(null);
-                compositeScore.textContent = '—';
-                aiInsight.innerHTML =
-                    `<i class="fas fa-robot"></i> <span data-i18n="aiPlaceholder">Evidence‑based recommendations appear after saving.</span>`;
-                currentEncounterId = null;
-                encounterNumberSpan.textContent = '0000';
-            });
-
-            pdfBtn.addEventListener('click', generatePDFReport);
-
-            let instrVisible = true;
-            toggleInstrBtn.addEventListener('click', function() {
-                instrVisible = !instrVisible;
-                instructions.classList.toggle('collapsed', !instrVisible);
-                toggleInstrBtn.innerHTML = instrVisible ? '<i class="fas fa-chevron-up"></i>' :
-                    '<i class="fas fa-chevron-down"></i>';
-            });
-
-            langBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const lang = this.dataset.lang;
-                    if (lang !== currentLang) applyLanguage(lang);
-                });
-            });
-
-            applyLanguage('en');
-
-            // Token buttons
-            generateTokenBtn.addEventListener('click', generateSessionToken);
-            copyTokenBtn.addEventListener('click', copyToken);
-            saveToVaultBtn.addEventListener('click', saveTokenToVault);
-            clearVaultBtn.addEventListener('click', clearVault);
-            exportVaultBtn.addEventListener('click', exportVault);
-
-            // Initially disable save-to-vault until token is generated
-            saveToVaultBtn.disabled = true;
-            copyTokenBtn.disabled = true;
-
+            updateAnchorStatus();
             console.log('=== Initialization complete ===');
         }
 
